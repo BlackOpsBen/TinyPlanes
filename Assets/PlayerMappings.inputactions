@@ -69,6 +69,17 @@
                     "action": "Steer",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9daabe79-a4c8-44b1-9c00-c00efcf58169",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick (Touch)",
+                    "action": "Steer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -80,6 +91,17 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Joystick (Touch)",
+            "bindingGroup": "Joystick (Touch)",
+            "devices": [
+                {
+                    "devicePath": "<Joystick>",
                     "isOptional": false,
                     "isOR": false
                 }

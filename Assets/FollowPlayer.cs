@@ -5,12 +5,28 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private Transform targetTransform;
-    [SerializeField] private float lerpSpeed = 10f;
+    [SerializeField] private float leadDistance = 2f;
+
+    private Rigidbody2D targetRigidBody;
+
+    private void Awake()
+    {
+        targetRigidBody = targetTransform.GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 desiredPos = new Vector3(targetTransform.position.x, targetTransform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, desiredPos, lerpSpeed * Time.deltaTime);
+        Vector3 targetPosFlat = new Vector3(targetTransform.position.x, targetTransform.position.y, transform.position.z);
+
+        //Vector3 leadPosition = targetPosFlat + targetTransform.up * leadDistance;
+
+        Vector3 velocity3D = new Vector3(targetRigidBody.velocity.x, targetRigidBody.velocity.y, 0f);
+
+        Vector3 leadPosition = targetPosFlat + velocity3D * leadDistance;
+
+        //transform.position = Vector3.Lerp(transform.position, leadPosition, lerpSpeed * Time.deltaTime);
+
+        transform.position = leadPosition;
     }
 }

@@ -20,14 +20,9 @@ public class Acceleration : MonoBehaviour
         Move();
     }
 
-    private void FixedUpdate()
-    {
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-    }
-
     private void Move()
     {
         rb.AddRelativeForce(Vector2.up * acceleration * Time.deltaTime, ForceMode2D.Force);
-        
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
 }

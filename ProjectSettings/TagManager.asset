@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 2078022335
+    locked: 0
+  - name: Islands
+    uniqueID: 1438752793
+    locked: 0
+  - name: Air
+    uniqueID: 3003701721
+    locked: 0

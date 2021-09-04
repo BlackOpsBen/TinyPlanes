@@ -5,24 +5,33 @@ using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] private Weapon weapon;
     [SerializeField] private Transform muzzle;
+
+    private Transform projectileParent;
+
+    private Arsenal arsenal;
 
     private float timer = 0f;
 
     private bool isShooting = false;
 
+    private void Awake()
+    {
+        projectileParent = GameObject.FindGameObjectWithTag("Projectiles").transform;
+        arsenal = GetComponent<Arsenal>();
+    }
+
     private void Update()
     {
         timer += Time.deltaTime;
 
-        float fireThreshold = 1f / weapon.GetPerSecondRate();
+        float fireThreshold = 1f / arsenal.GetCurrentWeapon().GetPerSecondRate();
 
         if (isShooting && timer >= fireThreshold)
         {
             timer = 0f;
 
-            weapon.Shoot(muzzle);
+            arsenal.GetCurrentWeapon().Shoot(muzzle, projectileParent);
         }
     }
 

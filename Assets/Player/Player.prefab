@@ -4851,6 +4851,7 @@ GameObject:
   - component: {fileID: 9153080804665836834}
   - component: {fileID: 9153080804665836832}
   - component: {fileID: 788264827646180253}
+  - component: {fileID: 3452672788285283108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5076,5 +5077,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca3f6ddbe98f41ecbb68dd7e7a7f4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: b417d2cc677aa43f09966d6992f1a521, type: 2}
   muzzle: {fileID: 8826936912565014142}
+--- !u!114 &3452672788285283108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39193368aee774e2392597d40178ee00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 11400000, guid: b417d2cc677aa43f09966d6992f1a521, type: 2}

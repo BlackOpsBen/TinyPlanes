@@ -1,24 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Acceleration : MonoBehaviour
 {
-    [SerializeField] float minSpeed = 1f;
-    [SerializeField] float maxSpeed = 5f;
+    [SerializeField] private float acceleration = 100f;
+    [SerializeField] private float maxSpeed = 10f;
 
-    private float currentSpeed = 1f;
-    private float acceleration = 2f;
+    private Rigidbody2D rb;
 
-    public float GetCurrentSpeed()
+    private void Awake()
     {
-        return currentSpeed;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    public void SetThrottle(float value)
+    private void Update()
     {
-        float direction = Mathf.Sign(value);
-        currentSpeed += acceleration * direction * Time.deltaTime;
-        currentSpeed = Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
+        Move();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+    }
+
+    private void Move()
+    {
+        rb.AddRelativeForce(Vector2.up * acceleration * Time.deltaTime, ForceMode2D.Force);
+        
     }
 }

@@ -24,4 +24,9 @@ public class Projectile : MonoBehaviour
     {
         timer = 0f;
     }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
 }

@@ -23,11 +23,12 @@ public class Pools : MonoBehaviour
 
         if (pool.instances.Count <= pool.currentIndex)
         {
-            pool.instances.Add(Instantiate(pool.prefab));
+            GameObject newInstance = Instantiate(pool.prefab);
+            newInstance.tag = gameObject.tag;
+            pool.instances.Add(newInstance);
         }
 
         GameObject toReturn = pool.instances[pool.currentIndex];
-        toReturn.SetActive(true);
 
         pool.currentIndex++;
         pool.currentIndex %= pool.maxInstances;

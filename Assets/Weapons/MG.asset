@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac8f1b2a74ddc481ab555368a986ad97, type: 3}
-  m_Name: Machine Gun
+  m_Name: MG
   m_EditorClassIdentifier: 
   projectile: {fileID: 2329587802199972405, guid: 7fce0a84a44d04317961dcc43c3c86de, type: 3}
   perSecond: 6

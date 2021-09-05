@@ -61,6 +61,7 @@ public class Arsenal : MonoBehaviour
         rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
     }
 
+    // Called by PlayerInput Unity Event
     public void OnShoot(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -70,6 +71,33 @@ public class Arsenal : MonoBehaviour
         else if (context.canceled)
         {
             isShooting = false;
+        }
+    }
+
+    //// Called by PlayerInput Unity Event
+    //public void OnNextWeapon()
+    //{
+    //    currentWeapon++;
+    //    currentWeapon %= weapons.Count;
+    //}
+
+    //// Called by PlayerInput Unity Event
+    //public void OnPrevWeapon()
+    //{
+    //    currentWeapon--;
+    //    currentWeapon += weapons.Count;
+    //    currentWeapon %= weapons.Count;
+    //}
+
+    // Called by PlayerInput Unity Event
+    public void OnCycleWeapons(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            int direction = (int)context.ReadValue<float>();
+            currentWeapon += direction;
+            currentWeapon += weapons.Count;
+            currentWeapon %= weapons.Count;
         }
     }
 }

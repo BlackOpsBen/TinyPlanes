@@ -5019,6 +5019,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 47e69f70-50f7-49bb-8abc-c05ffcf94f3b
     m_ActionName: Default/Shoot[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3452672788285283108}
+        m_TargetAssemblyTypeName: Arsenal, Assembly-CSharp
+        m_MethodName: OnCycleWeapons
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b51ee6de-8375-48e8-8e92-091000f0707d
+    m_ActionName: Default/Cycle Weapons[/Keyboard/comma,/Keyboard/period]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Default
@@ -5067,6 +5083,7 @@ MonoBehaviour:
   muzzle: {fileID: 8826936912565014142}
   weapons:
   - {fileID: 11400000, guid: b417d2cc677aa43f09966d6992f1a521, type: 2}
+  - {fileID: 11400000, guid: cf0a1e81a5fe745519643109e5a6c37d, type: 2}
 --- !u!114 &9008440404760645873
 MonoBehaviour:
   m_ObjectHideFlags: 0

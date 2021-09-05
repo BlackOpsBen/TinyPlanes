@@ -7,7 +7,7 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
 {
     [SerializeField] Acceleration acceleration; // TODO hide things that can be grabbed on Start
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] Collider2D collider;
+    [SerializeField] Collider2D col;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Vector2 spinSpeedMinMax = new Vector2(45f, 45f);
     [SerializeField] ParticleSystem explosionParticles;
@@ -37,7 +37,7 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
     private void Crash()
     {
         spriteRenderer.enabled = false;
-        collider.enabled = false;
+        col.enabled = false;
         explosionParticles.Play();
         foreach (var ps in stopParticles)
         {

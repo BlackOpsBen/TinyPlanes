@@ -48,13 +48,13 @@ public class Arsenal : MonoBehaviour
     {
         GameObject firedProjectile = pools.GetNextInPool(currentWeapon);
 
+        firedProjectile.SetActive(true);
+
         Rigidbody2D rb = firedProjectile.GetComponent<Rigidbody2D>();
 
         rb.velocity = Vector2.zero;
         rb.MovePosition(muzzle.position);
         rb.SetRotation(muzzle.rotation);
-
-        firedProjectile.SetActive(true);
 
         Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
 

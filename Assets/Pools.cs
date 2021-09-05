@@ -27,6 +27,7 @@ public class Pools : MonoBehaviour
         }
 
         GameObject toReturn = pool.instances[pool.currentIndex];
+        toReturn.SetActive(true);
 
         pool.currentIndex++;
         pool.currentIndex %= pool.maxInstances;

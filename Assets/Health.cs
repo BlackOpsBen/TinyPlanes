@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    IDeathBehavior deathBehavior;
+    IHitBehavior hitBehavior;
+
     [SerializeField] int startingHealth = 3;
+
     private int currentHealth;
+
+    private bool isDead = false;
 
     private void Start()
     {
+        deathBehavior = GetComponent<IDeathBehavior>();
+        hitBehavior = GetComponent<IHitBehavior>();
+
         currentHealth = startingHealth;
     }
 
     public void TakeDamage(int amount)
     {
+        hitBehavior.TakeHit();
+
         currentHealth -= amount;
-        if (currentHealth <= 0)
+
+        if (currentHealth <= 0 && !isDead)
         {
-            currentHealth = 0;
             Die();
         }
     }
@@ -29,7 +40,8 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        isDead = true;
+        deathBehavior.Die();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

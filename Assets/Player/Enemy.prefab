@@ -19,6 +19,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2964427954057790682, guid: 0438d20d5b92a4358a1e7c8eba9001d1, type: 3}
+      propertyPath: flashSprite
+      value: 
+      objectReference: {fileID: 7062248037653463830, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
     - target: {fileID: 9153080804665836834, guid: 0438d20d5b92a4358a1e7c8eba9001d1, type: 3}
       propertyPath: m_Radius
       value: 0.5

@@ -4844,14 +4844,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9153080804665836844}
   - component: {fileID: 9153080804665836847}
-  - component: {fileID: 9153080804665836846}
-  - component: {fileID: 9153080804665836841}
-  - component: {fileID: 9153080804665836845}
   - component: {fileID: 9153080804665836835}
   - component: {fileID: 9153080804665836834}
-  - component: {fileID: 9153080804665836832}
-  - component: {fileID: 788264827646180253}
+  - component: {fileID: 9153080804665836845}
+  - component: {fileID: 9153080804665836846}
+  - component: {fileID: 9153080804665836841}
   - component: {fileID: 3452672788285283108}
+  - component: {fileID: 9008440404760645873}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4926,34 +4925,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9153080804665836846
-MonoBehaviour:
+--- !u!50 &9153080804665836835
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &9153080804665836834
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153080804665836840}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1d5af1b41c3948ba985c9b328b14a13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steerThresholdMagnitude: 0.9
-  steeringSpeed: 200
---- !u!114 &9153080804665836841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9153080804665836840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f705f4824d25445198b198bd59d24295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  acceleration: 500
-  maxSpeed: 10
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6
 --- !u!114 &9153080804665836845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4997,8 +5005,8 @@ MonoBehaviour:
     m_ActionName: Default/Steer[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 788264827646180253}
-        m_TargetAssemblyTypeName: Shoot, Assembly-CSharp
+      - m_Target: {fileID: 3452672788285283108}
+        m_TargetAssemblyTypeName: Arsenal, Assembly-CSharp
         m_MethodName: OnShoot
         m_Mode: 0
         m_Arguments:
@@ -5016,44 +5024,7 @@ MonoBehaviour:
   m_DefaultActionMap: Default
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!50 &9153080804665836835
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9153080804665836840}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &9153080804665836834
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9153080804665836840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.6
---- !u!114 &9153080804665836832
+--- !u!114 &9153080804665836846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5062,10 +5033,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9153080804665836840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 541ea33bedb474a18816575867812113, type: 3}
+  m_Script: {fileID: 11500000, guid: b1d5af1b41c3948ba985c9b328b14a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &788264827646180253
+  steerThresholdMagnitude: 0.9
+  steeringSpeed: 200
+--- !u!114 &9153080804665836841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5074,10 +5047,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9153080804665836840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ca3f6ddbe98f41ecbb68dd7e7a7f4aa, type: 3}
+  m_Script: {fileID: 11500000, guid: f705f4824d25445198b198bd59d24295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 8826936912565014142}
+  acceleration: 500
+  maxSpeed: 10
 --- !u!114 &3452672788285283108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,5 +5064,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39193368aee774e2392597d40178ee00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzle: {fileID: 8826936912565014142}
   weapons:
   - {fileID: 11400000, guid: b417d2cc677aa43f09966d6992f1a521, type: 2}
+--- !u!114 &9008440404760645873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1bbf93c7f0bd47e094251749088b028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPerPool: 20

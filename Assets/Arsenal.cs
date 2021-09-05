@@ -1,25 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Arsenal : MonoBehaviour
 {
+    [SerializeField] private Transform muzzle;
+
     [SerializeField] private List<Weapon> weapons = new List<Weapon>(); // TODO automatically load weapons from resources
 
-    private List<Pool> pools = new List<Pool>();
+    private Pools pools;
+
+    private Transform projectileParent;
+
+    private float timer = 0f;
+
+    private bool isShooting = false;
 
     private int currentWeapon = 0;
 
+    private void Awake()
+    {
+        pools = GetComponent<Pools>();
+        projectileParent = GameObject.FindGameObjectWithTag("Projectiles").transform;
+    }
+
     private void Start()
     {
-        for (int i = 0; i < weapons.Count; i++)
+        pools.Init(weapons);
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+
+        float fireThreshold = 1f / weapons[currentWeapon].GetPerSecondRate();
+
+        if (isShooting && timer >= fireThreshold)
         {
-            pools.Add(new Pool());
+            timer = 0f;
+
+            FireCurrentWeapon();
         }
     }
 
-    public Weapon GetCurrentWeapon()
+    public void FireCurrentWeapon()
     {
-        return weapons[currentWeapon];
+        GameObject firedProjectile = pools.GetNextInPool(currentWeapon);
+
+        Rigidbody2D rb = firedProjectile.GetComponent<Rigidbody2D>();
+
+        rb.velocity = Vector2.zero;
+        rb.MovePosition(muzzle.position);
+        rb.SetRotation(muzzle.rotation);
+
+        Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
+
+        rb.velocity = parentRb.velocity;
+
+        rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isShooting = true;
+        }
+        else if (context.canceled)
+        {
+            isShooting = false;
+        }
     }
 }

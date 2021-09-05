@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    IDeathBehavior deathBehavior;
-    IHitBehavior hitBehavior;
+    IDeathBehavior[] deathBehaviors;
+    IHitBehavior[] hitBehaviors;
 
     [SerializeField] int startingHealth = 3;
 
@@ -15,17 +15,20 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        deathBehavior = GetComponent<IDeathBehavior>();
-        hitBehavior = GetComponent<IHitBehavior>();
+        deathBehaviors = GetComponents<IDeathBehavior>();
+        hitBehaviors = GetComponents<IHitBehavior>();
 
         currentHealth = startingHealth;
     }
 
     public void TakeDamage(int amount)
     {
-        hitBehavior.TakeHit();
-
         currentHealth -= amount;
+
+        foreach (var hitBehavior in hitBehaviors)
+        {
+            hitBehavior.TakeHit();
+        }
 
         if (currentHealth <= 0 && !isDead)
         {
@@ -35,13 +38,16 @@ public class Health : MonoBehaviour
 
     public float GetHealthPercentage()
     {
-        return currentHealth / startingHealth;
+        return (float)currentHealth / startingHealth;
     }
 
     private void Die()
     {
         isDead = true;
-        deathBehavior.Die();
+        foreach (var deathBehavior in deathBehaviors)
+        {
+            deathBehavior.Die();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

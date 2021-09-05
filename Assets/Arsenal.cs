@@ -30,7 +30,7 @@ public class Arsenal : MonoBehaviour
         pools.Init(weapons);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         timer += Time.deltaTime;
 
@@ -53,6 +53,8 @@ public class Arsenal : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.MovePosition(muzzle.position);
         rb.SetRotation(muzzle.rotation);
+
+        firedProjectile.SetActive(true);
 
         Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
 

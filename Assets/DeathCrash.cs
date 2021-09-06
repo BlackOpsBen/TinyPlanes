@@ -43,6 +43,8 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
         {
             ps.Stop();
         }
+
+        AudioManager.Instance.PlaySoundGroup(2);
     }
 
     public void Die()
@@ -55,5 +57,8 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
         gameObject.layer = 6;
 
         isCrashing = true;
+
+        AudioManager.Instance.PlayUniqueSound("Crash");
+        AudioManager.Instance.PlayUniqueSound("Engine Failure");
     }
 }

@@ -34,6 +34,8 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+
+        AudioManager.Instance.PlaySoundGroup(0); // TODO refactor sound playing
     }
 
     public float GetHealthPercentage()

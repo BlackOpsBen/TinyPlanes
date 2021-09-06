@@ -47,20 +47,18 @@ public class Arsenal : MonoBehaviour
     public void FireCurrentWeapon()
     {
         GameObject firedProjectile = pools.GetNextInPool(currentWeapon);
-
         firedProjectile.SetActive(true);
 
         Rigidbody2D rb = firedProjectile.GetComponent<Rigidbody2D>();
-
         rb.velocity = Vector2.zero;
         rb.MovePosition(muzzle.position);
         rb.SetRotation(muzzle.rotation);
 
         Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
-
         rb.velocity = parentRb.velocity;
-
         rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
+
+        AudioManager.Instance.PlaySoundGroup(1); // TODO refactor sounds
     }
 
     // Called by PlayerInput Unity Event

@@ -19344,6 +19344,7 @@ GameObject:
   - component: {fileID: 2653047426256199195}
   - component: {fileID: 2964427954057790682}
   - component: {fileID: 735359280198965527}
+  - component: {fileID: 6685724759741111793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Blue
@@ -19593,7 +19594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bbf93c7f0bd47e094251749088b028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPerPool: 20
+  maxPerPool: 10
 --- !u!114 &7471393744365064057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19661,3 +19662,16 @@ MonoBehaviour:
   - {fileID: 5481199882560545529}
   health: {fileID: 7471393744365064057}
   fireStartThreshold: 0.5
+--- !u!114 &6685724759741111793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldSize: 5

@@ -100,4 +100,9 @@ public class Arsenal : MonoBehaviour
             currentWeapon %= weapons.Count;
         }
     }
+
+    public Weapon GetCurrentWeapon()
+    {
+        return weapons[currentWeapon];
+    }
 }

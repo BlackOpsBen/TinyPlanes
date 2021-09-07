@@ -74,6 +74,11 @@ public class Arsenal : MonoBehaviour
         }
     }
 
+    public void SetIsShooting(bool value)
+    {
+        isShooting = value;
+    }
+
     //// Called by PlayerInput Unity Event
     //public void OnNextWeapon()
     //{

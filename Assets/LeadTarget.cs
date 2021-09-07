@@ -22,6 +22,11 @@ public class LeadTarget : MonoBehaviour
 
     private void Update()
     {
+        SetTargetLead();
+    }
+
+    private void SetTargetLead()
+    {
         target = targeting.GetNearestTarget();
 
         if (target != null)
@@ -33,6 +38,11 @@ public class LeadTarget : MonoBehaviour
 
             leadPosition = (Vector2)targetRigidBody.transform.position + (targetVelocity * leadDelay);
         }
+    }
+
+    public Vector2 GetTargetLead()
+    {
+        return leadPosition;
     }
 
     private void OnDrawGizmos()

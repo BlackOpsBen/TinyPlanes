@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class WorldWrapManager : MonoBehaviour
     public static WorldWrapManager instance;
 
     private void Awake()
+    {
+        SingletonPattern();
+        UpdateWorldWrap();
+    }
+
+    private void SingletonPattern()
     {
         if (instance != null)
         {
@@ -25,11 +32,6 @@ public class WorldWrapManager : MonoBehaviour
     [SerializeField] private Camera worldMapCamera;
     [SerializeField] private GameObject[] worldMapCopies;
 
-    private void Start()
-    {
-        UpdateWorldWrap();
-    }
-
     public Vector2 GetWorldDimensions()
     {
         return worldDimensions;
@@ -45,30 +47,53 @@ public class WorldWrapManager : MonoBehaviour
 
             t.localScale = new Vector3(worldDimensions.x, worldDimensions.y, t.localScale.z); ;
 
-            //t.position = new Vector3(t.position.x * worldDimensions.x / Mathf.Abs(t.position.x), t.position.y * worldDimensions.y / Mathf.Abs(t.position.y), t.position.z);
-
-            float xPos;
-            float yPos;
-
-            if (t.position.x != 0f)
-            {
-                xPos = Mathf.Sign(t.position.x) * worldDimensions.x;
-            }
-            else
-            {
-                xPos = 0f;
-            }
-
-            if (t.position.y != 0f)
-            {
-                yPos = Mathf.Sign(t.position.y) * worldDimensions.y;
-            }
-            else
-            {
-                yPos = 0f;
-            }
-
-            t.position = new Vector3(xPos, yPos, t.position.z);
+            t.position = GetWrappedPosition(t.position);
         }
+    }
+
+    public static Vector3 GetWrappedPosition(Vector3 position)
+    {
+        Vector2 origin = new Vector2(0f, 0f);
+        float xPos;
+        float yPos;
+
+        if (Mathf.Abs(position.x - origin.x) > float.Epsilon)
+        {
+            xPos = Mathf.Sign(position.x) * instance.worldDimensions.x;
+        }
+        else
+        {
+            xPos = origin.x;
+        }
+
+        if (Mathf.Abs(position.y - origin.y) > float.Epsilon)
+        {
+            yPos = Mathf.Sign(position.y) * instance.worldDimensions.y;
+        }
+        else
+        {
+            yPos = origin.y;
+        }
+
+        return new Vector3(xPos, yPos, position.z);
+    }
+
+    //public List<Vector2> GetWrapTargetPositions(Vector2 ownerPosition)
+    //{
+    //    List<Vector2> targetPositions = new List<Vector2>();
+
+    //    for (int i = 0; i < worldMapCopies.Length; i++)
+    //    {
+    //        Vector2 position = (Vector2)worldMapCopies[i].transform.position + ownerPosition;
+    //        targetPositions.Add(position);
+    //    }
+
+    //    return targetPositions;
+    //}
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(Vector3.zero, worldDimensions);
     }
 }

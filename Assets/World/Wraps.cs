@@ -4,31 +4,55 @@ using UnityEngine;
 
 public class Wraps : MonoBehaviour
 {
+    [SerializeField] private bool wrapTarget;
+    [SerializeField] private GameObject targetWrapGroupPrefab;
+
     private Vector2 worldSize;
 
     private void Start()
     {
         worldSize = WorldWrapManager.instance.GetWorldDimensions();
+
+        if (wrapTarget)
+        {
+            //List<Vector2> targetPositions = WorldWrapManager.instance.GetWrapTargetPositions(transform.position);
+
+            //foreach (var tPos in targetPositions)
+            //{
+            //    GameObject g = Instantiate(new GameObject(), WorldWrapManager.instance.transform, false);
+            //    g.tag = gameObject.tag;
+            //    g.transform.position = tPos;
+            //}
+
+            Transform parent = GameObject.FindGameObjectWithTag("TargetWrapGroups").transform;
+            GameObject group = Instantiate(targetWrapGroupPrefab, parent, true);
+            group.GetComponent<ConstrainToParentTarget>().SetParent(transform);
+        }
     }
 
     private void Update()
     {
-        if (transform.position.x < -worldSize.x/2)
+        WrapPosition();
+    }
+
+    private void WrapPosition()
+    {
+        if (transform.position.x < -worldSize.x / 2)
         {
             transform.position = new Vector3(transform.position.x + worldSize.x, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.x > worldSize.x/2)
+        if (transform.position.x > worldSize.x / 2)
         {
             transform.position = new Vector3(transform.position.x - worldSize.x, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.y < -worldSize.y/2)
+        if (transform.position.y < -worldSize.y / 2)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y + worldSize.y, transform.position.z);
         }
 
-        if (transform.position.y > worldSize.y/2)
+        if (transform.position.y > worldSize.y / 2)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - worldSize.y, transform.position.z);
         }

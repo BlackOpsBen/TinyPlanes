@@ -19674,3 +19674,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrapTarget: 0
+  targetWrapGroupPrefab: {fileID: 3337919453996133270, guid: 8c73975f90a404708ac70f87bbecf738, type: 3}

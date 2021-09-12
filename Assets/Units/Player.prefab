@@ -19453,7 +19453,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -19582,6 +19582,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b417d2cc677aa43f09966d6992f1a521, type: 2}
   - {fileID: 11400000, guid: cf0a1e81a5fe745519643109e5a6c37d, type: 2}
   - {fileID: 11400000, guid: 72447aa68758148a6b3714e0b8328e91, type: 2}
+  debugAlwaysShoot: 0
 --- !u!114 &9008440404760645873
 MonoBehaviour:
   m_ObjectHideFlags: 0

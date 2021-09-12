@@ -21,17 +21,14 @@ public class Pools : MonoBehaviour
     {
         Pool pool = pools[weaponIndex];
 
-        if (pool.instances.Count <= pool.currentIndex)
+        if (pool.GetCount() <= pool.GetCurrentIndex())
         {
-            GameObject newInstance = Instantiate(pool.prefab);
+            GameObject newInstance = Instantiate(pool.GetPrefab());
             newInstance.tag = gameObject.tag;
-            pool.instances.Add(newInstance);
+            pool.AddInstance(newInstance);
         }
 
-        GameObject toReturn = pool.instances[pool.currentIndex];
-
-        pool.currentIndex++;
-        pool.currentIndex %= pool.maxInstances;
+        GameObject toReturn = pool.GetCurrentInstance();
 
         return toReturn;
     }
@@ -39,18 +36,51 @@ public class Pools : MonoBehaviour
 
 public class Pool
 {
-    public int maxInstances = 50;
+    private int maxInstances = 50;
 
-    public GameObject prefab;
+    private GameObject prefab;
 
-    public List<GameObject> instances = new List<GameObject>();
+    private List<GameObject> instances = new List<GameObject>();
 
-    public int currentIndex = 0;
+    private int currentIndex = 0;
 
     public Pool(int maxInstances, Weapon weapon)
     {
         this.maxInstances = maxInstances;
 
         prefab = weapon.GetProjectile();
+    }
+
+    public int GetCount()
+    {
+        return instances.Count;
+    }
+
+    public int GetCurrentIndex()
+    {
+        return currentIndex;
+    }
+
+    public GameObject GetPrefab()
+    {
+        return prefab;
+    }
+
+    public void AddInstance(GameObject instance)
+    {
+        instances.Add(instance);
+    }
+
+    public GameObject GetCurrentInstance()
+    {
+        GameObject toReturn = instances[currentIndex];
+        CycleIndex();
+        return toReturn;
+    }
+
+    private void CycleIndex()
+    {
+        currentIndex++;
+        currentIndex %= maxInstances;
     }
 }

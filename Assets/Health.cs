@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
             if (projectile != null)
             {
                 TakeDamage(projectile.GetDamage());
-                projectile.gameObject.SetActive(false);
+                projectile.ToggleActive(false);
             }
         }
     }

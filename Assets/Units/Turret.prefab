@@ -303,6 +303,7 @@ MonoBehaviour:
   muzzle: {fileID: 1706381184}
   weapons:
   - {fileID: 11400000, guid: 32d50fecb5a1a4cf78d5f89bd4181094, type: 2}
+  debugAlwaysShoot: 0
 --- !u!114 &747692523
 MonoBehaviour:
   m_ObjectHideFlags: 0

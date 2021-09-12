@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   lifeSpan: 1
+  spriteRenderer: {fileID: 7256107371486299748}
+  mCollider: {fileID: 6317558931062840976}
 --- !u!114 &793576929612403444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrapTarget: 0
+  targetWrapGroupPrefab: {fileID: 0}

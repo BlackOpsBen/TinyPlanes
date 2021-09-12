@@ -19,6 +19,8 @@ public class Arsenal : MonoBehaviour
 
     private int currentWeapon = 0;
 
+    [SerializeField] private bool debugAlwaysShoot = false;
+
     private void Awake()
     {
         pools = GetComponent<Pools>();
@@ -32,6 +34,11 @@ public class Arsenal : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (debugAlwaysShoot)
+        {
+            isShooting = true;
+        }
+
         timer += Time.deltaTime;
 
         float fireThreshold = 1f / weapons[currentWeapon].GetPerSecondRate();
@@ -47,12 +54,13 @@ public class Arsenal : MonoBehaviour
     public void FireCurrentWeapon()
     {
         GameObject firedProjectile = pools.GetNextInPool(currentWeapon);
-        firedProjectile.SetActive(true);
 
         Rigidbody2D rb = firedProjectile.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.MovePosition(muzzle.position);
         rb.SetRotation(muzzle.rotation);
+
+        firedProjectile.GetComponent<Projectile>().ToggleActive(true);
 
         Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
         rb.velocity = parentRb.velocity;

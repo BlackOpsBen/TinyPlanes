@@ -8,6 +8,10 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float lifeSpan = 1f;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [SerializeField] private Collider2D mCollider;
+
     private float timer = 0f;
 
     private void Update()
@@ -16,17 +20,19 @@ public class Projectile : MonoBehaviour
 
         if (timer > lifeSpan)
         {
-            gameObject.SetActive(false);
+            ToggleActive(false);
         }
-    }
-
-    private void OnEnable()
-    {
-        timer = 0f;
     }
 
     public int GetDamage()
     {
         return damage;
+    }
+
+    public void ToggleActive(bool active)
+    {
+        spriteRenderer.enabled = active;
+        mCollider.enabled = active;
+        timer = 0f;
     }
 }

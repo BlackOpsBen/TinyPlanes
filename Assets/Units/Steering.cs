@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 public class Steering : MonoBehaviour
 {
     [SerializeField] private float steerThresholdMagnitude = .9f;
-    [SerializeField] private float steeringSpeed = 20f;
+    [SerializeField] private float defaultSteeringSpeed = 200f;
+
+    private float steeringSpeedMultiplier = 1f;
 
     Vector2 desiredFacing;
 
@@ -20,7 +22,7 @@ public class Steering : MonoBehaviour
     void Update()
     {
         Quaternion desiredRotation = Quaternion.LookRotation(Vector3.forward, desiredFacing);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, steeringSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, defaultSteeringSpeed * steeringSpeedMultiplier * Time.deltaTime);
     }
 
     public void OnSteer(InputAction.CallbackContext context)
@@ -35,5 +37,10 @@ public class Steering : MonoBehaviour
         {
             desiredFacing = transform.up;
         }
+    }
+
+    public void SetSteeringSpeedMultiplier(float multiplier)
+    {
+        steeringSpeedMultiplier = multiplier;
     }
 }

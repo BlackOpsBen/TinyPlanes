@@ -19345,6 +19345,7 @@ GameObject:
   - component: {fileID: 2964427954057790682}
   - component: {fileID: 735359280198965527}
   - component: {fileID: 6685724759741111793}
+  - component: {fileID: 8104634138662311154}
   m_Layer: 0
   m_Name: Player
   m_TagString: Blue
@@ -19532,6 +19533,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b51ee6de-8375-48e8-8e92-091000f0707d
     m_ActionName: Default/Cycle Weapons[/Keyboard/comma,/Keyboard/period]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8104634138662311154}
+        m_TargetAssemblyTypeName: Boost, Assembly-CSharp
+        m_MethodName: OnSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8fa43fe7-1829-47f2-8410-2fbae2eed3f2
+    m_ActionName: Default/Special[/Keyboard/rightMeta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Default
@@ -19550,7 +19567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steerThresholdMagnitude: 0.9
-  steeringSpeed: 200
+  defaultSteeringSpeed: 200
 --- !u!114 &9153080804665836841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19564,7 +19581,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 500
+  accelerationMultiplier: 1
   maxSpeed: 10
+  maxSpeedMultiplier: 1
 --- !u!114 &3452672788285283108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19677,3 +19696,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrapTarget: 0
   targetWrapGroupPrefab: {fileID: 3337919453996133270, guid: 8c73975f90a404708ac70f87bbecf738, type: 3}
+--- !u!114 &8104634138662311154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db434338adc404de597e5ac2adaa2a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steering: {fileID: 9153080804665836846}
+  acceleration: {fileID: 9153080804665836841}
+  maxBoostTime: 2
+  cooldownDelay: 4
+  cooldownSpeed: 0.5
+  steeringSpeedMultiplier: 0.25
+  boostSpeedMultiplier: 2
+  boostAccelerationMultiplier: 2

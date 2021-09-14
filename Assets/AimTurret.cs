@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Arsenal))]
+[RequireComponent(typeof(LeadTarget))]
 public class AimTurret : MonoBehaviour
 {
     [SerializeField] Transform turretPivot;

@@ -219,8 +219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3410540813620967590}
-  flashSprite: {fileID: 7734667006899837600, guid: 1b0cd2409656445dea975258a6f3b4f4, type: 3}
+  spriteRenderers:
+  - {fileID: 3410540813620967590}
+  - {fileID: 3410540812806710589}
+  flashSprites:
+  - {fileID: 7734667006899837600, guid: 1b0cd2409656445dea975258a6f3b4f4, type: 3}
+  - {fileID: 21300000, guid: 4dd0cdb94a63a40e0a23374c1b7bd2b3, type: 3}
   flashDuration: 0.1
 --- !u!61 &4240671836956605105
 BoxCollider2D:
@@ -311,6 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 1706381184}
+  unitRigidBody: {fileID: 747692526}
   weapons:
   - {fileID: 11400000, guid: 32d50fecb5a1a4cf78d5f89bd4181094, type: 2}
   debugAlwaysShoot: 0

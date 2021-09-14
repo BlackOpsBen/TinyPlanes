@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Pools))]
 public class Arsenal : MonoBehaviour
 {
     [SerializeField] private Transform muzzle;
+
+    [SerializeField] private Rigidbody2D unitRigidBody;
 
     [SerializeField] private List<Weapon> weapons = new List<Weapon>(); // TODO automatically load weapons from resources
 
@@ -62,8 +65,8 @@ public class Arsenal : MonoBehaviour
 
         firedProjectile.GetComponent<Projectile>().ToggleActive(true);
 
-        Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
-        rb.velocity = parentRb.velocity;
+        //Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
+        rb.velocity = unitRigidBody.velocity;
         rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
 
         AudioManager.Instance.PlaySoundGroup(1); // TODO refactor sounds

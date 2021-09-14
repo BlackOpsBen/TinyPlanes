@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Targeting))]
+[RequireComponent(typeof(Arsenal))]
 public class LeadTarget : MonoBehaviour
 {
     private Targeting targeting;

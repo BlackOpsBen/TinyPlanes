@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HitFlash : MonoBehaviour, IHitBehavior
 {
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer[] spriteRenderers;
 
-    [SerializeField] Sprite flashSprite;
+    [SerializeField] Sprite[] flashSprites;
 
-    private Sprite defaultSprite;
+    private Sprite[] defaultSprites;
 
     [SerializeField] float flashDuration = .1f;
 
@@ -16,7 +16,13 @@ public class HitFlash : MonoBehaviour, IHitBehavior
 
     private void Start()
     {
-        defaultSprite = spriteRenderer.sprite;
+        defaultSprites = new Sprite[spriteRenderers.Length];
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            defaultSprites[i] = spriteRenderers[i].sprite;
+        }
+        //defaultSprites = spriteRenderers.sprite;
     }
 
     private void Update()
@@ -24,13 +30,22 @@ public class HitFlash : MonoBehaviour, IHitBehavior
         timer += Time.deltaTime;
         if (timer > flashDuration)
         {
-            spriteRenderer.sprite = defaultSprite;
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                spriteRenderers[i].sprite = defaultSprites[i];
+            }
+            //spriteRenderers.sprite = defaultSprites;
         }
     }
 
     public void TakeHit()
     {
         timer = 0f;
-        spriteRenderer.sprite = flashSprite;
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            spriteRenderers[i].sprite = flashSprites[i];
+        }
+        //spriteRenderers.sprite = flashSprites;
     }
 }

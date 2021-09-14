@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] int startingHealth = 3;
 
+    [SerializeField] MonoBehaviour[] DisableWhenDead;
+
     private int currentHealth;
 
     private bool isDead = false;
@@ -45,6 +47,11 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        foreach (var behavior in DisableWhenDead)
+        {
+            behavior.enabled = false;
+        }
+
         isDead = true;
         foreach (var deathBehavior in deathBehaviors)
         {

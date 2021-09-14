@@ -40,7 +40,6 @@ public class Drift : MonoBehaviour
 
         if (isDrifting)
         {
-            Debug.Log("DRIFTING");
             driftTimer += Time.deltaTime;
             if (driftTimer > maxDriftTime)
             {

@@ -32,7 +32,6 @@ public class Boost : MonoBehaviour
     {
         if (isBoosting)
         {
-            Debug.Log("BOOSTING");
             boostTimer += Time.deltaTime;
         }
         else

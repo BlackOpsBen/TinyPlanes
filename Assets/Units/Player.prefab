@@ -19346,6 +19346,7 @@ GameObject:
   - component: {fileID: 735359280198965527}
   - component: {fileID: 6685724759741111793}
   - component: {fileID: 8104634138662311154}
+  - component: {fileID: 6238871536991176933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Blue
@@ -19547,6 +19548,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6238871536991176933}
+        m_TargetAssemblyTypeName: Drift, Assembly-CSharp
+        m_MethodName: OnDrift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8fa43fe7-1829-47f2-8410-2fbae2eed3f2
     m_ActionName: Default/Special[/Keyboard/rightMeta]
   m_NeverAutoSwitchControlSchemes: 0
@@ -19716,3 +19729,17 @@ MonoBehaviour:
   steeringSpeedMultiplier: 0.25
   boostSpeedMultiplier: 2
   boostAccelerationMultiplier: 2
+--- !u!114 &6238871536991176933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a310806465c245e983a04d8826554ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDriftTime: 2
+  driftThreshold: 0.5

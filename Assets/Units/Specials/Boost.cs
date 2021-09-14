@@ -22,7 +22,7 @@ public class Boost : MonoBehaviour
 
     private float boostTimer = 0f;
 
-    private float cooldownTimer = 0f;
+    private float cooldownTimer = 100f;
 
     private bool isBoosting = false;
 
@@ -32,6 +32,7 @@ public class Boost : MonoBehaviour
     {
         if (isBoosting)
         {
+            Debug.Log("BOOSTING");
             boostTimer += Time.deltaTime;
         }
         else
@@ -79,11 +80,16 @@ public class Boost : MonoBehaviour
         acceleration.SetAccelerationMultiplier(boostAccelerationMultiplier);
     }
 
-    private void StopBoost()
+    public void StopBoost()
     {
         isBoosting = false;
         steering.SetSteeringSpeedMultiplier(1f);
         acceleration.SetMaxSpeedMultiplier(1f);
         acceleration.SetAccelerationMultiplier(1f);
+    }
+
+    public float GetCooldownTimer()
+    {
+        return cooldownTimer;
     }
 }

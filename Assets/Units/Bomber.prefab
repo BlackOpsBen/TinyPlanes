@@ -14701,7 +14701,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 9153080804665836847}
   col: {fileID: 934033162846940328}
   rb: {fileID: 9153080804665836835}
-  spinSpeedMinMax: {x: 45, y: 45}
+  spinSpeedMinMax: {x: 4, y: 5}
   explosionParticles: {fileID: 6184672879706150335}
   stopParticles:
   - {fileID: 2832839966904741768}

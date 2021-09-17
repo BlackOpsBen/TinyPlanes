@@ -9,7 +9,7 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Collider2D col;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Vector2 spinSpeedMinMax = new Vector2(45f, 45f);
+    [SerializeField] Vector2 spinSpeedMinMax = new Vector2(45f, 180f);
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] ParticleSystem[] stopParticles;
 
@@ -18,6 +18,8 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
     private float timeToCrash = 2f;
 
     private float timer = 0f;
+
+    private float torque;
 
     private void Update()
     {
@@ -31,6 +33,14 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
             Crash();
             isCrashing = false;
             timer = 0f;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isCrashing)
+        {
+            rb.AddTorque(torque, ForceMode2D.Force);
         }
     }
 
@@ -51,8 +61,12 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
     {
         acceleration.SetIsAccelerating(false);
 
-        float torque = UnityEngine.Random.Range(spinSpeedMinMax.x, spinSpeedMinMax.y);
-        rb.AddTorque(torque);
+        torque = UnityEngine.Random.Range(-spinSpeedMinMax.y, spinSpeedMinMax.y);
+
+        if (Mathf.Abs(torque) < spinSpeedMinMax.y)
+        {
+            torque += spinSpeedMinMax.x * Mathf.Sign(torque);
+        }
 
         gameObject.layer = 6;
 

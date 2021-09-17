@@ -14692,7 +14692,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 9153080804665836847}
   col: {fileID: 9153080804665836834}
   rb: {fileID: 9153080804665836835}
-  spinSpeedMinMax: {x: 45, y: 45}
+  spinSpeedMinMax: {x: 4, y: 5}
   explosionParticles: {fileID: 6184672879706150335}
   stopParticles:
   - {fileID: 2832839966904741768}
@@ -14713,7 +14713,7 @@ MonoBehaviour:
   spriteRenderers:
   - {fileID: 9153080804665836847}
   flashSprites:
-  - {fileID: 5113036906047799591, guid: faf9c437b5610bc4fad128bbfc57311e, type: 3}
+  - {fileID: -5554691879426119994, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
   flashDuration: 0.1
 --- !u!114 &735359280198965527
 MonoBehaviour:

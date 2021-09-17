@@ -9,21 +9,12 @@ public class PlayerController : MonoBehaviour
 
     private IPlayerControllable unitInterface;
 
-    private Vector2 rawStickInput;
-
-    private void Start()
-    {
-        unitInterface = controlledUnit.GetComponent<IPlayerControllable>();
-    }
-
-    private void Update()
-    {
-        unitInterface.OnSteer(rawStickInput);
-    }
-
     public void OnSteer(InputAction.CallbackContext context)
     {
-        rawStickInput = context.ReadValue<Vector2>();
+        if (unitInterface != null)
+        {
+            unitInterface.OnSteer(context.ReadValue<Vector2>());
+        }
     }
 
     public void OnActionA(InputAction.CallbackContext context)
@@ -59,5 +50,15 @@ public class PlayerController : MonoBehaviour
     public GameObject GetControlledUnit()
     {
         return controlledUnit;
+    }
+
+    /// <summary>
+    /// Warning: argument must have a component that implements IPlayerControllable
+    /// </summary>
+    /// <param name="unit"></param>
+    public void SetControlledUnit(GameObject unit)
+    {
+        controlledUnit = unit;
+        unitInterface = controlledUnit.GetComponent<IPlayerControllable>();
     }
 }

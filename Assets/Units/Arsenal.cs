@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Pools))]
 public class Arsenal : MonoBehaviour
@@ -72,17 +71,18 @@ public class Arsenal : MonoBehaviour
         AudioManager.Instance.PlaySoundGroup(1); // TODO refactor sounds
     }
 
-    // Called by PlayerInput Unity Event
-    public void OnShoot(InputAction.CallbackContext context)
+    public void OnShoot(bool isTriggerPulled)
     {
-        if (context.performed)
-        {
-            isShooting = true;
-        }
-        else if (context.canceled)
-        {
-            isShooting = false;
-        }
+        isShooting = isTriggerPulled;
+
+        //if (context.performed)
+        //{
+        //    isShooting = true;
+        //}
+        //else if (context.canceled)
+        //{
+        //    isShooting = false;
+        //}
     }
 
     public void SetIsShooting(bool value)
@@ -106,16 +106,16 @@ public class Arsenal : MonoBehaviour
     //}
 
     // Called by PlayerInput Unity Event
-    public void OnCycleWeapons(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            int direction = (int)context.ReadValue<float>();
-            currentWeapon += direction;
-            currentWeapon += weapons.Count;
-            currentWeapon %= weapons.Count;
-        }
-    }
+    //public void OnCycleWeapons(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)
+    //    {
+    //        int direction = (int)context.ReadValue<float>();
+    //        currentWeapon += direction;
+    //        currentWeapon += weapons.Count;
+    //        currentWeapon %= weapons.Count;
+    //    }
+    //}
 
     public Weapon GetCurrentWeapon()
     {

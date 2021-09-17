@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Steering : MonoBehaviour
 {
@@ -25,13 +24,11 @@ public class Steering : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRotation, defaultSteeringSpeed * steeringSpeedMultiplier * Time.deltaTime);
     }
 
-    public void OnSteer(InputAction.CallbackContext context)
+    public void OnSteer(Vector2 rawLeftInput)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-
-        if (input.magnitude >= steerThresholdMagnitude)
+        if (rawLeftInput.magnitude >= steerThresholdMagnitude)
         {
-            desiredFacing = input;
+            desiredFacing = rawLeftInput;
         }
         else
         {

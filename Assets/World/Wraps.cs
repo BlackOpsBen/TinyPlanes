@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wraps : MonoBehaviour
 {
+    [Tooltip("If enabled, this object will be targetable by wrapping around map.")]
     [SerializeField] private bool wrapTarget;
     [SerializeField] private GameObject targetWrapGroupPrefab;
 

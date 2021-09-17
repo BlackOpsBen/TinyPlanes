@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Boost : MonoBehaviour
+public class Boost : MonoBehaviour, ISpecialAbility
 {
     [SerializeField] private Steering steering;
     [SerializeField] private Acceleration acceleration;
@@ -57,16 +56,25 @@ public class Boost : MonoBehaviour
         }
     }
 
-    public void OnSpecial(InputAction.CallbackContext context)
+    public void OnSpecial(bool isPressed)
     {
-        if (context.performed && canBoost)
+        if (isPressed && canBoost)
         {
             StartBoost();
         }
-        else if (context.canceled)
+        else
         {
             StopBoost();
         }
+
+        //if (context.performed && canBoost)
+        //{
+        //    StartBoost();
+        //}
+        //else if (context.canceled)
+        //{
+        //    StopBoost();
+        //}
     }
 
     private void StartBoost()

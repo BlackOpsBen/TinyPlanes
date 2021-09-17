@@ -6,7 +6,7 @@ public class HitFlash : MonoBehaviour, IHitBehavior
 {
     [SerializeField] SpriteRenderer[] spriteRenderers;
 
-    [SerializeField] Sprite[] flashSprites;
+    [SerializeField] Sprite[] flashSprites; // TODO automatically get correct flash sprites depending on which base sprites
 
     private Sprite[] defaultSprites;
 

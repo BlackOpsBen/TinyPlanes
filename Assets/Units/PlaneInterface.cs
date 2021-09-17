@@ -23,13 +23,13 @@ public class PlaneInterface : MonoBehaviour, IPlayerControllable
         steering.OnSteer(input);
     }
 
-    public void OnActionA(bool isPressed)
+    public void OnActionA(bool performed, bool canceled)
     {
-        arsenal.OnShoot(isPressed);
+        arsenal.OnShoot(performed, canceled);
     }
 
-    public void OnActionB(bool isPressed)
+    public void OnActionB(bool performed, bool canceled)
     {
-        special.OnSpecial(isPressed);
+        special.OnSpecial(performed, canceled);
     }
 }

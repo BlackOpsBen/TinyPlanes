@@ -56,25 +56,16 @@ public class Boost : MonoBehaviour, ISpecialAbility
         }
     }
 
-    public void OnSpecial(bool isPressed)
+    public void OnSpecial(bool performed, bool canceled)
     {
-        if (isPressed && canBoost)
+        if (performed && canBoost)
         {
             StartBoost();
         }
-        else
+        else if (canceled)
         {
             StopBoost();
         }
-
-        //if (context.performed && canBoost)
-        //{
-        //    StartBoost();
-        //}
-        //else if (context.canceled)
-        //{
-        //    StopBoost();
-        //}
     }
 
     private void StartBoost()

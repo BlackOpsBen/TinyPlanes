@@ -71,18 +71,16 @@ public class Arsenal : MonoBehaviour
         AudioManager.Instance.PlaySoundGroup(1); // TODO refactor sounds
     }
 
-    public void OnShoot(bool isTriggerPulled)
+    public void OnShoot(bool performed, bool canceled)
     {
-        isShooting = isTriggerPulled;
-
-        //if (context.performed)
-        //{
-        //    isShooting = true;
-        //}
-        //else if (context.canceled)
-        //{
-        //    isShooting = false;
-        //}
+        if (performed)
+        {
+            isShooting = true;
+        }
+        else if (canceled)
+        {
+            isShooting = false;
+        }
     }
 
     public void SetIsShooting(bool value)

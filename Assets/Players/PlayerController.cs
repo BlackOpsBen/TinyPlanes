@@ -32,11 +32,11 @@ public class PlayerController : MonoBehaviour
         {
             if (context.performed)
             {
-                unitInterface.OnActionA(true);
+                unitInterface.OnActionA(true, false);
             }
             else if (context.canceled)
             {
-                unitInterface.OnActionA(false);
+                unitInterface.OnActionA(false, true);
             }
         }
     }
@@ -47,11 +47,11 @@ public class PlayerController : MonoBehaviour
         {
             if (context.performed)
             {
-                unitInterface.OnActionB(true);
+                unitInterface.OnActionB(true, false);
             }
             else if (context.canceled)
             {
-                unitInterface.OnActionB(false);
+                unitInterface.OnActionB(false, true);
             }
         }
     }

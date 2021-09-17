@@ -27,6 +27,13 @@ public class Boost : MonoBehaviour, ISpecialAbility
 
     private bool canBoost = true;
 
+    private Drift drift;
+
+    private void Start()
+    {
+        drift = GetComponent<Drift>();
+    }
+
     private void Update()
     {
         if (isBoosting)
@@ -65,6 +72,11 @@ public class Boost : MonoBehaviour, ISpecialAbility
         else if (canceled)
         {
             StopBoost();
+        }
+
+        if (drift != null)
+        {
+            drift.OnDrift(performed, canceled);
         }
     }
 

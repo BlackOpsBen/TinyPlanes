@@ -48,13 +48,13 @@ public class Drift : MonoBehaviour
         }
     }
 
-    public void OnDrift(InputAction.CallbackContext context)
+    public void OnDrift(bool performed, bool canceled)
     {
-        if (context.performed && timeSinceEndedBoost < driftThreshold)
+        if (performed && timeSinceEndedBoost < driftThreshold)
         {
             StartDrift();
         }
-        else if (context.canceled)
+        else if (canceled)
         {
             StopDrift();
         }

@@ -109,8 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   potentialTargets: []
-  nearestTarget: {fileID: 0}
-  isInRange: 0
+  target: {fileID: 0}
 --- !u!114 &1215196224254600364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPivot: {fileID: 1215196225855901738}
+  turretBase: {fileID: 4513475386991380416}
   turretTurnSpeed: 100
 --- !u!114 &1215196224254600400
 MonoBehaviour:
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 1215196225855901738}
   - component: {fileID: 1215196225855901741}
   m_Layer: 0
-  m_Name: tank_turret
+  m_Name: Turret_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

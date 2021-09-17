@@ -6,11 +6,19 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
+    /// <summary>
+    /// Sets the RigidBody2D that is associated with this target.
+    /// </summary>
+    /// <param name="rb"></param>
     public void SetRigidBody(Rigidbody2D rb)
     {
         this.rb = rb;
     }
 
+    /// <summary>
+    /// Gets the RigidBody2D that is associated with this target.
+    /// </summary>
+    /// <returns></returns>
     public Rigidbody2D GetRigidBody()
     {
         return rb;

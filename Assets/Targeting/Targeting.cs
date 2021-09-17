@@ -6,10 +6,8 @@ public class Targeting : MonoBehaviour
 {
     [SerializeField] float range = 10f;
 
-    [SerializeField] private GameObject[] potentialTargets;
-    [SerializeField] private GameObject nearestTarget;
-
-    [SerializeField] private bool isInRange = false;
+    [SerializeField] private List<GameObject> potentialTargets = new List<GameObject>();
+    [SerializeField] private GameObject target;
 
     private void OnDrawGizmos()
     {
@@ -19,33 +17,45 @@ public class Targeting : MonoBehaviour
 
     private void Update()
     {
-        FindNearestTarget();
+        target = GetNearestTarget();
     }
 
-    private void FindNearestTarget()
+    private GameObject GetNearestTarget()
     {
-        potentialTargets = GameObject.FindGameObjectsWithTag("Blue");
+        GameObject nearestTarget = null;
 
-        nearestTarget = potentialTargets[0];
+        float nearestTargetDistSqr = float.MaxValue;
 
-        float nearestTargetDistance = Vector2.Distance(transform.position, nearestTarget.transform.position);
+        potentialTargets = new List<GameObject>(GameObject.FindGameObjectsWithTag("Blue")); // TODO get all enemy targets, not just all tagged with "blue"
 
-        for (int i = 1; i < potentialTargets.Length; i++)
+        foreach (var pt in potentialTargets)
         {
-            float distance = Vector2.Distance(transform.position, potentialTargets[i].transform.position);
+            Vector2 directionToTarget = pt.transform.position - transform.position;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
 
-            if (distance < nearestTargetDistance)
+            if (dSqrToTarget < nearestTargetDistSqr)
             {
-                nearestTarget = potentialTargets[i];
-                nearestTargetDistance = distance;
+                nearestTarget = pt;
+                nearestTargetDistSqr = dSqrToTarget;
             }
         }
 
-        isInRange = nearestTargetDistance < range;
+        if (nearestTargetDistSqr < range)
+        {
+            return nearestTarget;
+        }
+        else
+        {
+            return null;
+        }
     }
 
-    public GameObject GetNearestTarget()
+    /// <summary>
+    /// Gets the nearest valid target if it is within range. Otherwise returns null.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject GetTarget()
     {
-        return nearestTarget;
+        return target;
     }
 }

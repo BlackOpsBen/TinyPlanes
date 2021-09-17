@@ -85,13 +85,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3410540812806710591}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3410540813016186348}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!212 &3410540812806710589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,8 +134,8 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -8907651678591178445, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  m_FlipX: 1
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -266,8 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   potentialTargets: []
-  nearestTarget: {fileID: 0}
-  isInRange: 0
+  target: {fileID: 0}
 --- !u!50 &747692526
 Rigidbody2D:
   serializedVersion: 4
@@ -344,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretPivot: {fileID: 3410540812728789667}
+  turretBase: {fileID: 3410540812806710588}
   turretTurnSpeed: 100
 --- !u!114 &5026468214320660578
 MonoBehaviour:

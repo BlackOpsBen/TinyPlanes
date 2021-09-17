@@ -29,7 +29,7 @@ public class LeadTarget : MonoBehaviour
 
     private void SetTargetLead()
     {
-        target = targeting.GetNearestTarget();
+        target = targeting.GetTarget();
 
         if (target != null)
         {
@@ -48,6 +48,10 @@ public class LeadTarget : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns the position that the projectile and the target will both reach at the same time assuming the target maintains it's current velocity.
+    /// </summary>
+    /// <returns></returns>
     public Vector2 GetTargetLead()
     {
         return leadPosition;

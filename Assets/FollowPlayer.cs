@@ -29,5 +29,9 @@ public class FollowPlayer : MonoBehaviour
 
             transform.position = leadPosition;
         }
+        else
+        {
+            targetUnitObject = GetComponentInParent<PlayerController>().GetControlledUnit();
+        }
     }
 }

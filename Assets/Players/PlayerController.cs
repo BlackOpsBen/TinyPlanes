@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject controlledUnit; // TODO handle when player has no units controlled
+    private GameObject controlledUnit;
 
     private IPlayerControllable unitInterface;
 

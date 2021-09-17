@@ -21,6 +21,14 @@ public class DebugSpawnPlayers : MonoBehaviour
         else if (playerControllers[playerIndex].GetControlledUnit() == null)
         {
             GameObject newUnit = Instantiate(unitPrefab);
+            if (playerIndex == 0)
+            {
+                newUnit.tag = "Blue";
+            }
+            else
+            {
+                newUnit.tag = "Red";
+            }
             playerControllers[playerIndex].SetControlledUnit(newUnit);
         }
     }

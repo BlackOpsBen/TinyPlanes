@@ -48,7 +48,7 @@ public class Drift : MonoBehaviour
         }
     }
 
-    public void OnDrift(bool performed, bool canceled)
+    public void OnDrift(bool performed, bool canceled) // TODO make it so you can do a boost right after a drift
     {
         if (performed && timeSinceEndedBoost < driftThreshold)
         {

@@ -19,6 +19,10 @@ public class AIInput : MonoBehaviour
 
     private LeadTarget leadTarget;
 
+    private bool isShooting = false;
+
+    private float fireThreshold = 10f;
+
     private void Start()
     {
         controlledUnit = GetComponent<PlayerController>().GetControlledUnit();
@@ -31,10 +35,11 @@ public class AIInput : MonoBehaviour
 
     private void Update()
     {
-        DebugAIControll();
+        Steering();
+        Shooting();
     }
 
-    private void DebugAIControll()
+    private void Steering()
     {
         Vector2 steerDirection = GetDirectionToNearestTarget();
         Steer.Invoke(steerDirection);
@@ -60,6 +65,23 @@ public class AIInput : MonoBehaviour
                 Debug.LogWarning("AI controlled unit does not have a LeadTarget component.");
                 return Vector2.zero;
             }
+        }
+    }
+
+    private void Shooting()
+    {
+        float angle = Vector2.Angle(GetDirectionToNearestTarget().normalized, controlledUnit.transform.up);
+
+        if (!isShooting && angle < fireThreshold)
+        {
+            ActionA.Invoke(true, false);
+            isShooting = true;
+        }
+
+        if (isShooting && angle > fireThreshold)
+        {
+            ActionA.Invoke(false, true);
+            isShooting = false;
         }
     }
 }

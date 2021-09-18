@@ -10,7 +10,7 @@ public class DebugSpawnAIUnit : MonoBehaviour
     {
         if (GetComponent<PlayerController>().GetControlledUnit() == null)
         {
-            GameObject newUnit = Instantiate(unitPrefab);
+            GameObject newUnit = Instantiate(unitPrefab, transform);
             newUnit.AddComponent<Targeting>();
             newUnit.AddComponent<LeadTarget>();
             newUnit.tag = "Red";

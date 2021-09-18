@@ -40,7 +40,7 @@ public class Targeting : MonoBehaviour
             }
         }
 
-        if (nearestTargetDistSqr < range)
+        if (nearestTargetDistSqr < range * range)
         {
             return nearestTarget;
         }

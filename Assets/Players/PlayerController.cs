@@ -17,6 +17,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnAISteer(Vector2 input)
+    {
+        if (unitInterface != null)
+        {
+            unitInterface.OnSteer(input);
+        }
+    }
+
     public void OnActionA(InputAction.CallbackContext context)
     {
         if (unitInterface != null)
@@ -32,6 +40,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnAIActionA(bool performed, bool canceled)
+    {
+        if (unitInterface != null)
+        {
+            unitInterface.OnActionA(performed, canceled);
+        }
+    }
+
     public void OnActionB(InputAction.CallbackContext context)
     {
         if (unitInterface != null)
@@ -44,6 +60,14 @@ public class PlayerController : MonoBehaviour
             {
                 unitInterface.OnActionB(false, true);
             }
+        }
+    }
+
+    public void OnAIActionB(bool performed, bool canceled)
+    {
+        if (unitInterface != null)
+        {
+            unitInterface.OnActionB(performed, canceled);
         }
     }
 

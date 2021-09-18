@@ -146,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  lifeSpan: 1
+  speed: 15
+  range: 20
   spriteRenderer: {fileID: 7256107371486299748}
   mCollider: {fileID: 6317558931062840976}
 --- !u!114 &793576929612403444

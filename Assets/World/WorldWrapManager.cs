@@ -9,6 +9,7 @@ public class WorldWrapManager : MonoBehaviour
 
     private void Awake()
     {
+        worldDimensions.y = worldDimensions.x;
         SingletonPattern();
         UpdateWorldWrap();
     }
@@ -26,6 +27,7 @@ public class WorldWrapManager : MonoBehaviour
     }
 
     [Header("Settings")]
+    [Tooltip("Currently must be a square. Y will be set equal to X at runtime.")]
     [SerializeField] private Vector2 worldDimensions = new Vector2(10f, 10f);
 
     [Header("World Objects")]

@@ -19,7 +19,8 @@ public class LeadTarget : MonoBehaviour
     private void Awake()
     {
         targeting = GetComponent<Targeting>();
-        weaponSpeed = GetComponent<Arsenal>().GetCurrentWeapon().GetSpeed(); // TODO refactor to handle weapon switching
+        //weaponSpeed = GetComponent<Arsenal>().GetCurrentWeapon().GetSpeed(); // TODO refactor to handle weapon switching
+        weaponSpeed = GetComponent<Arsenal>().GetCurrentWeapon().GetProjectile().GetComponent<Projectile>().GetSpeed();
     }
 
     private void Update()

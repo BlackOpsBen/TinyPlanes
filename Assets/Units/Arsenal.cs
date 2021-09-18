@@ -62,11 +62,13 @@ public class Arsenal : MonoBehaviour
         rb.MovePosition(muzzle.position);
         rb.SetRotation(muzzle.rotation);
 
-        firedProjectile.GetComponent<Projectile>().ToggleActive(true);
+        //firedProjectile.GetComponent<Projectile>().ToggleActive(true);
+        firedProjectile.GetComponent<Projectile>().BeginProjectile(muzzle.position);
 
         //Rigidbody2D parentRb = muzzle.GetComponentInParent<Rigidbody2D>();
         rb.velocity = unitRigidBody.velocity;
-        rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
+        //rb.AddRelativeForce(Vector2.up * weapons[currentWeapon].GetSpeed(), ForceMode2D.Impulse);
+        rb.velocity += (Vector2)muzzle.up * weapons[currentWeapon].GetProjectile().GetComponent<Projectile>().GetSpeed();
 
         AudioManager.Instance.PlaySoundGroup(1); // TODO refactor sounds
     }

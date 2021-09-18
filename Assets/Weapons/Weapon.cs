@@ -7,7 +7,7 @@ public class Weapon : ScriptableObject
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private int perSecond = 2;
-    [SerializeField] private float speed = 10f;
+    //[SerializeField] private float speed = 10f;
 
     public int GetPerSecondRate()
     {
@@ -19,8 +19,8 @@ public class Weapon : ScriptableObject
         return projectile;
     }
 
-    public float GetSpeed()
-    {
-        return speed;
-    }
+    //public float GetSpeed()
+    //{
+    //    return speed;
+    //}
 }

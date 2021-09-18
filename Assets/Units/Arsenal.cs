@@ -31,7 +31,12 @@ public class Arsenal : MonoBehaviour
 
     private void Start()
     {
-        pools.Init(weapons);
+        List<GameObject> weaponProjectilePrefabs = new List<GameObject>();
+        foreach (var weapon in weapons)
+        {
+            weaponProjectilePrefabs.Add(weapon.GetProjectile());
+        }
+        pools.Init(weapons.Count, weaponProjectilePrefabs);
     }
 
     private void FixedUpdate()

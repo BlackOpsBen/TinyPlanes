@@ -6,7 +6,7 @@ public class DebugSpawnAIUnit : MonoBehaviour
 {
     [SerializeField] private GameObject unitPrefab;
 
-    private void Start()
+    private void Awake()
     {
         if (GetComponent<PlayerController>().GetControlledUnit() == null)
         {

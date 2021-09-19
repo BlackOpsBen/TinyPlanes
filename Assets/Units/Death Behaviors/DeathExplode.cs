@@ -9,6 +9,7 @@ public class DeathExplode : MonoBehaviour, IDeathBehavior
 
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] ParticleSystem[] stopParticles;
+    [SerializeField] ParticleSystem[] resumeParticles;
 
     private void Start()
     {
@@ -29,5 +30,20 @@ public class DeathExplode : MonoBehaviour, IDeathBehavior
         }
 
         AudioManager.Instance.PlaySoundGroup(2);
+    }
+
+    public void Respawn()
+    {
+        foreach (var sr in spriteRenderers)
+        {
+            sr.enabled = true;
+        }
+
+        col.enabled = true;
+
+        foreach (var ps in resumeParticles)
+        {
+            ps.Play();
+        }
     }
 }

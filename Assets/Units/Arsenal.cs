@@ -22,6 +22,7 @@ public class Arsenal : MonoBehaviour
     private int currentWeapon = 0;
 
     [SerializeField] private bool debugAlwaysShoot = false;
+    [SerializeField] private bool debugNeverShoot = false;
 
     private void Awake()
     {
@@ -44,6 +45,11 @@ public class Arsenal : MonoBehaviour
         if (debugAlwaysShoot)
         {
             isShooting = true;
+        }
+
+        if (debugNeverShoot)
+        {
+            return;
         }
 
         timer += Time.deltaTime;

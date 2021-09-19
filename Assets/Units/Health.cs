@@ -64,6 +64,18 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Respawn()
+    {
+        foreach (var db in deathBehaviors)
+        {
+            db.Respawn();
+        }
+
+        currentHealth = startingHealth;
+
+        isDead = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag(gameObject.tag))

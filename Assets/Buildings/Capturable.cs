@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ public class Capturable : MonoBehaviour
 
     [Header("Capture Conditions")]
     [SerializeField] private List<Health> mustDestroyThese = new List<Health>();
-    [SerializeField] private bool mustHaveSuperiority = true;
     [SerializeField] private float superiorityRequirement = 20f;
     [SerializeField] private float superiorityRadius = 15f;
     private float[] superiorityCounters;
@@ -39,29 +39,82 @@ public class Capturable : MonoBehaviour
         {
             int[] qtyUnitsPerFaction = new int[superiorityCounters.Length];
 
+            // Count all units in range
             for (int i = 0; i < superiorityCounters.Length; i++)
             {
                 GameObject[] factionTagged = GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name);
 
                 for (int j = 0; j < factionTagged.Length; j++)
                 {
-                    if (factionTagged[j].GetComponent<Health>() != null)
+                    bool inRange = GetDistSqr(factionTagged[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
+                    if (inRange && factionTagged[j].GetComponent<Health>() != null)
                     {
                         qtyUnitsPerFaction[i]++;
                     }
                 }
             }
+
+            // Add/Subtract Superiority Points for each unit
+            for (int i = 0; i < qtyUnitsPerFaction.Length; i++)
+            {
+                for (int j = 0; j < qtyUnitsPerFaction.Length; j++)
+                {
+                    if (j == i)
+                    {
+                        superiorityCounters[j] += qtyUnitsPerFaction[i] * Time.deltaTime;
+                    }
+                    else
+                    {
+                        superiorityCounters[j] -= qtyUnitsPerFaction[i] * Time.deltaTime;
+                    }
+                }
+            }
+
+            // Check for takeover
+            float maxValue = superiorityCounters.Max();
+
+            if (maxValue > superiorityRequirement)
+            {
+                SetOwningFaction(superiorityCounters.ToList().IndexOf(maxValue));
+                Reset();
+            }
         }
+    }
+
+    private float GetDistSqr(Vector2 a, Vector2 b)
+    {
+        Vector2 direction = a - b;
+        return direction.sqrMagnitude;
     }
 
     public void SetOwningFaction(int factionIndex)
     {
         this.factionIndex = factionIndex;
         gameObject.tag = FactionManager.instance.GetFaction(factionIndex).name;
+        foreach (var building in mustDestroyThese)
+        {
+            building.tag = gameObject.tag;
+        }
+        Debug.LogWarning("New Faction Owner: " + FactionManager.instance.GetFaction(factionIndex).name + factionIndex.ToString());
     }
 
     public int GetOwningFactionIndex()
     {
         return factionIndex;
+    }
+
+    public void Reset()
+    {
+        for (int i = 0; i < superiorityCounters.Length; i++)
+        {
+            superiorityCounters[i] = 0f;
+        }
+
+        allPrereqsDestroyed = false;
+
+        foreach (var health in mustDestroyThese)
+        {
+            health.Respawn();
+        }
     }
 }

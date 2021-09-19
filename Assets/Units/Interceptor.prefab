@@ -14648,6 +14648,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf0a1e81a5fe745519643109e5a6c37d, type: 2}
   - {fileID: 11400000, guid: 72447aa68758148a6b3714e0b8328e91, type: 2}
   debugAlwaysShoot: 0
+  debugNeverShoot: 1
 --- !u!114 &9008440404760645873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14698,6 +14699,8 @@ MonoBehaviour:
   - {fileID: 2832839966904741768}
   - {fileID: 2920299055240639068}
   - {fileID: 5481199882560545529}
+  resumeParticles:
+  - {fileID: 2832839966904741768}
 --- !u!114 &2964427954057790682
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
     [SerializeField] Vector2 spinSpeedMinMax = new Vector2(45f, 180f);
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] ParticleSystem[] stopParticles;
+    [SerializeField] ParticleSystem[] resumeParticles;
 
     private bool isCrashing = false;
 
@@ -74,5 +75,23 @@ public class DeathCrash : MonoBehaviour, IDeathBehavior
 
         AudioManager.Instance.PlayUniqueSound("Crash");
         AudioManager.Instance.PlayUniqueSound("Engine Failure");
+    }
+
+    public void Respawn()
+    {
+        acceleration.SetIsAccelerating(true);
+
+        gameObject.layer = 0;
+
+        isCrashing = false;
+
+        spriteRenderer.enabled = true;
+
+        col.enabled = true;
+
+        foreach (var ps in resumeParticles)
+        {
+            ps.Play();
+        }
     }
 }

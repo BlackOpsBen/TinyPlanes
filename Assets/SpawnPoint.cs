@@ -10,6 +10,8 @@ public class SpawnPoint : MonoBehaviour
     {
         GameObject spawnedUnit = Instantiate(unitPrefab, spawnPos.position, spawnPos.rotation, transform);
 
+        spawnedUnit.tag = gameObject.tag;
+
         return spawnedUnit;
     }
 }

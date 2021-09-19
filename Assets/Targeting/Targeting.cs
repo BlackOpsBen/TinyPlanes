@@ -26,7 +26,27 @@ public class Targeting : MonoBehaviour
 
         float nearestTargetDistSqr = float.MaxValue;
 
-        potentialTargets = new List<GameObject>(GameObject.FindGameObjectsWithTag("Blue")); // TODO get all enemy targets, not just all tagged with "blue"
+        potentialTargets = new List<GameObject>();
+
+        for (int i = 0; i < FactionManager.instance.GetNumFactions(); i++)
+        {
+            potentialTargets.AddRange(GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name));
+        }
+
+        List<GameObject> toRemove = new List<GameObject>();
+
+        foreach (var pt in potentialTargets)
+        {
+            if (pt.GetComponent<Target>() == null)
+            {
+                toRemove.Add(pt);
+            }
+        }
+
+        foreach (var bad in toRemove)
+        {
+            potentialTargets.Remove(bad);
+        }
 
         foreach (var pt in potentialTargets)
         {

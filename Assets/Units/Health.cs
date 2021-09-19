@@ -45,6 +45,11 @@ public class Health : MonoBehaviour
         return (float)currentHealth / startingHealth;
     }
 
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }    
+
     private void Die()
     {
         foreach (var behavior in DisableWhenDead)

@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 1344920044821826859}
   - component: {fileID: 1297994459744124118}
   - component: {fileID: 1427129660794642616}
+  - component: {fileID: 561460395506281785}
   m_Layer: 0
   m_Name: Airfield
   m_TagString: Untagged
@@ -403,6 +404,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 2555786527121830069, guid: 45392948fa08b4180a5ad568cebbe154, type: 3}
   interval: 10
+--- !u!114 &561460395506281785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221978578821718478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8669ebc1d498447c92b2831cac5752d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8221978578903837278
 GameObject:
   m_ObjectHideFlags: 0

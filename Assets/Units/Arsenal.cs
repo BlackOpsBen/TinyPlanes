@@ -40,7 +40,7 @@ public class Arsenal : MonoBehaviour
         pools.Init(weapons.Count, weaponProjectilePrefabs);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (debugAlwaysShoot)
         {
@@ -67,10 +67,12 @@ public class Arsenal : MonoBehaviour
     public void FireCurrentWeapon()
     {
         GameObject firedProjectile = pools.GetNextInPool(currentWeapon);
+        firedProjectile.transform.position = muzzle.position;
+        firedProjectile.transform.rotation = muzzle.rotation;
 
         Rigidbody2D rb = firedProjectile.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        rb.MovePosition(muzzle.position);
+        rb.position = muzzle.position;
         rb.SetRotation(muzzle.rotation);
 
         //firedProjectile.GetComponent<Projectile>().ToggleActive(true);

@@ -80,11 +80,13 @@ public class Health : MonoBehaviour
     {
         if (!collision.CompareTag(gameObject.tag))
         {
+            Debug.LogWarning("Collision tags: " + collision.name + " " + collision.tag + " & " + gameObject.name + " " + gameObject.tag);
             Projectile projectile = collision.GetComponent<Projectile>();
             if (projectile != null)
             {
                 TakeDamage(projectile.GetDamage());
                 //projectile.ToggleActive(false);
+                Debug.Log("Calling EndProjectile from Health");
                 projectile.EndProjectile();
             }
         }

@@ -6,8 +6,6 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] int damage = 1;
 
-    //[SerializeField] float lifeSpan = 1f;
-
     [Tooltip("Speed in units per second")]
     [SerializeField] float speed = 10f;
 
@@ -18,25 +16,20 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private Collider2D mCollider;
 
-    private Vector2 firedFromPos;
+    [SerializeField] private Rigidbody2D rb;
 
-    //private float timer = 0f;
+    private Vector2 firedFromPos;
 
     private void Update()
     {
-        //timer += Time.deltaTime;
-
-        //if (timer > lifeSpan)
-        //{
-        //    ToggleActive(false);
-        //}
-
         Vector2 directionToFiredFromPos = firedFromPos - (Vector2)transform.position;
         float dSqrToFiredFromPos = directionToFiredFromPos.sqrMagnitude;
 
         if (dSqrToFiredFromPos > range * range)
         {
+            Debug.Log("Calling EndProjectile from self for being beyond range");
             EndProjectile();
+            firedFromPos = transform.position;
         }
     }
 
@@ -50,21 +43,17 @@ public class Projectile : MonoBehaviour
         return speed;
     }
 
-    //public void ToggleActive(bool active)
-    //{
-    //    spriteRenderer.enabled = active;
-    //    mCollider.enabled = active;
-    //    //timer = 0f;
-    //}
-
     public void EndProjectile()
     {
+        Debug.Log("EndProjectile");
         spriteRenderer.enabled = false;
         mCollider.enabled = false;
+        rb.velocity = Vector2.zero;
     }
 
     public void BeginProjectile(Vector2 startPosition)
     {
+        Debug.Log("BeginProjectile");
         firedFromPos = startPosition;
         spriteRenderer.enabled = true;
         mCollider.enabled = true;

@@ -14485,6 +14485,7 @@ GameObject:
   - component: {fileID: 8104634138662311154}
   - component: {fileID: 6238871536991176933}
   - component: {fileID: 4216528992989540085}
+  - component: {fileID: 6553696186913504478}
   m_Layer: 0
   m_Name: Interceptor
   m_TagString: Untagged
@@ -14648,7 +14649,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf0a1e81a5fe745519643109e5a6c37d, type: 2}
   - {fileID: 11400000, guid: 72447aa68758148a6b3714e0b8328e91, type: 2}
   debugAlwaysShoot: 0
-  debugNeverShoot: 1
+  debugNeverShoot: 0
 --- !u!114 &9008440404760645873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14796,6 +14797,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a016ca5bbcb4b7ba03fa1c7baeaebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6553696186913504478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ed585c0922d459f8da48363f71a4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capturePointFactor: 1
 --- !u!1001 &2871585899727058013
 PrefabInstance:
   m_ObjectHideFlags: 0

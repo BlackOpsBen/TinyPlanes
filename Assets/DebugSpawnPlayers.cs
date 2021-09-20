@@ -28,7 +28,7 @@ public class DebugSpawnPlayers : MonoBehaviour
             }
             else
             {
-                newUnit.tag = "Red";
+                newUnit.tag = "Yellow";
             }
             playerInputs[playerIndex].GetComponent<PlayerController>().SetControlledUnit(newUnit);
         }

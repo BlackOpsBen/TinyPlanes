@@ -9,14 +9,6 @@ public class Pools : MonoBehaviour
 
     private List<Pool> pools = new List<Pool>();
 
-    //public void Init(List<Weapon> weapons)
-    //{
-    //    for (int i = 0; i < weapons.Count; i++)
-    //    {
-    //        pools.Add(new Pool(maxPerPool, weapons[i]));
-    //    }
-    //}
-
     public void Init(int numPools, List<GameObject> prefabs)
     {
         for (int i = 0; i < numPools; i++)
@@ -52,12 +44,6 @@ public class Pool
 
     private int currentIndex = 0;
 
-    //public Pool(int maxInstances, Weapon weapon)
-    //{
-    //    this.maxInstances = maxInstances;
-    //    prefab = weapon.GetProjectile();
-    //}
-
     public Pool(int maxInstances, GameObject prefab)
     {
         this.maxInstances = maxInstances;
@@ -76,6 +62,7 @@ public class Pool
 
     public GameObject GetPrefab()
     {
+        Debug.Log("GetPrefab");
         return prefab;
     }
 

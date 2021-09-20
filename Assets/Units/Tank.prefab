@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 1215196224254600405}
   - component: {fileID: 1215196224254600406}
   - component: {fileID: 3669852363873595830}
+  - component: {fileID: 6280213745287205432}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -95,6 +96,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: 32d50fecb5a1a4cf78d5f89bd4181094, type: 2}
   debugAlwaysShoot: 0
+  debugNeverShoot: 0
 --- !u!114 &1215196224254600367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +236,7 @@ MonoBehaviour:
   stopParticles:
   - {fileID: 7800996274310399642}
   - {fileID: 3708232810584419254}
+  resumeParticles: []
 --- !u!114 &1215196224254600405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +292,19 @@ MonoBehaviour:
   acceleration: 200
   tankBody: {fileID: 4513475386991380416}
   stopDistance: 0.5
+--- !u!114 &6280213745287205432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196224254600362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56ed585c0922d459f8da48363f71a4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capturePointFactor: 1
 --- !u!1 &1215196225000271266
 GameObject:
   m_ObjectHideFlags: 0

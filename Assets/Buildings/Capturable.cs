@@ -39,17 +39,33 @@ public class Capturable : MonoBehaviour
         {
             int[] qtyUnitsPerFaction = new int[superiorityCounters.Length];
 
-            // Count all units in range
+            //// Count all units in range
+            //for (int i = 0; i < superiorityCounters.Length; i++)
+            //{
+            //    GameObject[] factionTagged = GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name);
+
+            //    for (int j = 0; j < factionTagged.Length; j++)
+            //    {
+            //        bool inRange = GetDistSqr(factionTagged[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
+            //        if (inRange && factionTagged[j].GetComponent<Health>() != null)
+            //        {
+            //            qtyUnitsPerFaction[i]++;
+            //        }
+            //    }
+            //}
+
+            // Count all units with Superiority
             for (int i = 0; i < superiorityCounters.Length; i++)
             {
-                GameObject[] factionTagged = GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name);
+                Superiority[] superiorityUnits = GameObject.FindObjectsOfType<Superiority>();
 
-                for (int j = 0; j < factionTagged.Length; j++)
+                for (int j = 0; j < superiorityUnits.Length; j++)
                 {
-                    bool inRange = GetDistSqr(factionTagged[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
-                    if (inRange && factionTagged[j].GetComponent<Health>() != null)
+                    bool inRange = GetDistSqr(superiorityUnits[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
+                    if (inRange)
                     {
-                        qtyUnitsPerFaction[i]++;
+                        int factionIndex = FactionManager.instance.GetFactionIndex(superiorityUnits[j].tag);
+                        qtyUnitsPerFaction[factionIndex]++;
                     }
                 }
             }
@@ -67,6 +83,8 @@ public class Capturable : MonoBehaviour
                     {
                         superiorityCounters[j] -= qtyUnitsPerFaction[i] * Time.deltaTime;
                     }
+
+                    superiorityCounters[j] = Mathf.Max(superiorityCounters[j], 0f);
                 }
             }
 
@@ -116,5 +134,10 @@ public class Capturable : MonoBehaviour
         {
             health.Respawn();
         }
+    }
+
+    public float GetCounter(int index)
+    {
+        return superiorityCounters[index];
     }
 }

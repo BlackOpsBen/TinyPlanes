@@ -62,7 +62,6 @@ public class Pool
 
     public GameObject GetPrefab()
     {
-        Debug.Log("GetPrefab");
         return prefab;
     }
 

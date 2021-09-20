@@ -25,6 +25,11 @@ public class AIInput : MonoBehaviour
 
     private void Start()
     {
+        AttemptGetControlledUnit();
+    }
+
+    private void AttemptGetControlledUnit()
+    {
         controlledUnit = GetComponent<PlayerController>().GetControlledUnit();
 
         if (controlledUnit != null)
@@ -35,8 +40,15 @@ public class AIInput : MonoBehaviour
 
     private void Update()
     {
-        Steering();
-        Shooting();
+        if (controlledUnit == null)
+        {
+            AttemptGetControlledUnit();
+        }
+        else
+        {
+            Steering();
+            Shooting();
+        }
     }
 
     private void Steering()
@@ -55,7 +67,7 @@ public class AIInput : MonoBehaviour
         {
             if (controlledUnit == null)
             {
-                Debug.LogWarning("AI does not have a controlled unit yet.");
+                Debug.LogWarning("Attempted Steering: AI does not have a controlled unit yet.");
                 // Nothing to move
                 return Vector2.zero;
             }
@@ -70,18 +82,25 @@ public class AIInput : MonoBehaviour
 
     private void Shooting()
     {
-        float angle = Vector2.Angle(GetDirectionToNearestTarget().normalized, controlledUnit.transform.up);
-
-        if (!isShooting && angle < fireThreshold)
+        if (controlledUnit != null)
         {
-            ActionA.Invoke(true, false);
-            isShooting = true;
+            float angle = Vector2.Angle(GetDirectionToNearestTarget().normalized, controlledUnit.transform.up);
+
+            if (!isShooting && angle < fireThreshold)
+            {
+                ActionA.Invoke(true, false);
+                isShooting = true;
+            }
+
+            if (isShooting && angle > fireThreshold)
+            {
+                ActionA.Invoke(false, true);
+                isShooting = false;
+            }
         }
-
-        if (isShooting && angle > fireThreshold)
+        else
         {
-            ActionA.Invoke(false, true);
-            isShooting = false;
+            Debug.LogWarning("Attempted Shooting: AI does not have a controlled unit yet.");
         }
     }
 }

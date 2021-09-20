@@ -39,21 +39,6 @@ public class Capturable : MonoBehaviour
         {
             int[] qtyUnitsPerFaction = new int[superiorityCounters.Length];
 
-            //// Count all units in range
-            //for (int i = 0; i < superiorityCounters.Length; i++)
-            //{
-            //    GameObject[] factionTagged = GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name);
-
-            //    for (int j = 0; j < factionTagged.Length; j++)
-            //    {
-            //        bool inRange = GetDistSqr(factionTagged[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
-            //        if (inRange && factionTagged[j].GetComponent<Health>() != null)
-            //        {
-            //            qtyUnitsPerFaction[i]++;
-            //        }
-            //    }
-            //}
-
             // Count all units with Superiority
             for (int i = 0; i < superiorityCounters.Length; i++)
             {
@@ -62,7 +47,7 @@ public class Capturable : MonoBehaviour
                 for (int j = 0; j < superiorityUnits.Length; j++)
                 {
                     bool inRange = GetDistSqr(superiorityUnits[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
-                    if (inRange)
+                    if (inRange && superiorityUnits[j].GetComponent<Health>().GetCurrentHealth() > 0)
                     {
                         int factionIndex = FactionManager.instance.GetFactionIndex(superiorityUnits[j].tag);
                         qtyUnitsPerFaction[factionIndex]++;

@@ -27,7 +27,6 @@ public class Projectile : MonoBehaviour
 
         if (dSqrToFiredFromPos > range * range)
         {
-            Debug.Log("Calling EndProjectile from self for being beyond range");
             EndProjectile();
             firedFromPos = transform.position;
         }
@@ -45,7 +44,6 @@ public class Projectile : MonoBehaviour
 
     public void EndProjectile()
     {
-        Debug.Log("EndProjectile");
         spriteRenderer.enabled = false;
         mCollider.enabled = false;
         rb.velocity = Vector2.zero;
@@ -53,7 +51,6 @@ public class Projectile : MonoBehaviour
 
     public void BeginProjectile(Vector2 startPosition)
     {
-        Debug.Log("BeginProjectile");
         firedFromPos = startPosition;
         spriteRenderer.enabled = true;
         mCollider.enabled = true;

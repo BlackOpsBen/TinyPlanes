@@ -163,6 +163,8 @@ GameObject:
   - component: {fileID: 747692525}
   - component: {fileID: 5026468214320660578}
   - component: {fileID: 2744737843721042021}
+  - component: {fileID: 7500281876372837506}
+  - component: {fileID: 609560928030249830}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -318,6 +320,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: 32d50fecb5a1a4cf78d5f89bd4181094, type: 2}
   debugAlwaysShoot: 0
+  debugNeverShoot: 0
 --- !u!114 &747692523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +367,7 @@ MonoBehaviour:
   stopParticles:
   - {fileID: 6136460994635786919}
   - {fileID: 5062541542800605613}
+  resumeParticles: []
 --- !u!114 &2744737843721042021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +385,33 @@ MonoBehaviour:
   - {fileID: 5062541542800605613}
   health: {fileID: 3889249047774786041}
   fireStartThreshold: 0.5
+--- !u!114 &7500281876372837506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540813016186351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2e2363c0a56474d884a8e40b0d7119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 747692526}
+--- !u!114 &609560928030249830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540813016186351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wrapTarget: 1
+  targetWrapGroupPrefab: {fileID: 3337919453996133270, guid: 8c73975f90a404708ac70f87bbecf738, type: 3}
 --- !u!1 &3410540813620967592
 GameObject:
   m_ObjectHideFlags: 0

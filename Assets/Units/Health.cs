@@ -74,6 +74,11 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth;
 
         isDead = false;
+
+        foreach (var behavior in DisableWhenDead)
+        {
+            behavior.enabled = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

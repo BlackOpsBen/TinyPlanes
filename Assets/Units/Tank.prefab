@@ -53,6 +53,8 @@ GameObject:
   - component: {fileID: 1215196224254600406}
   - component: {fileID: 3669852363873595830}
   - component: {fileID: 6280213745287205432}
+  - component: {fileID: 8370986981564764802}
+  - component: {fileID: 162842640995643385}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -304,7 +306,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ed585c0922d459f8da48363f71a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capturePointFactor: 1
+--- !u!114 &8370986981564764802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196224254600362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2e2363c0a56474d884a8e40b0d7119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1215196224254600402}
+--- !u!114 &162842640995643385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196224254600362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wrapTarget: 1
+  targetWrapGroupPrefab: {fileID: 3337919453996133270, guid: 8c73975f90a404708ac70f87bbecf738, type: 3}
 --- !u!1 &1215196225000271266
 GameObject:
   m_ObjectHideFlags: 0

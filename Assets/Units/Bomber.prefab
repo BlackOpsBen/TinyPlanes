@@ -14485,6 +14485,7 @@ GameObject:
   - component: {fileID: 2459567372739982678}
   - component: {fileID: 4216528992989540085}
   - component: {fileID: 293100303187536303}
+  - component: {fileID: 2936514327540093283}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Untagged
@@ -14795,7 +14796,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ed585c0922d459f8da48363f71a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capturePointFactor: 1
+--- !u!114 &2936514327540093283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2e2363c0a56474d884a8e40b0d7119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 9153080804665836835}
 --- !u!1001 &2871585899727058013
 PrefabInstance:
   m_ObjectHideFlags: 0

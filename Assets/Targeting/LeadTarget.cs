@@ -9,8 +9,8 @@ public class LeadTarget : MonoBehaviour
     private Targeting targeting;
     private float weaponSpeed;
 
-    private GameObject target;
-    private Rigidbody2D targetRigidBody;
+    private Target target;
+    //private Rigidbody2D targetRigidBody;
     private Vector2 targetVelocity;
     private float leadDelay;
 
@@ -34,14 +34,14 @@ public class LeadTarget : MonoBehaviour
 
         if (target != null)
         {
-            targetRigidBody = target.GetComponent<Rigidbody2D>();
+            //targetRigidBody = target.GetComponent<Rigidbody2D>();
 
-            if (targetRigidBody == null)
-            {
-                targetRigidBody = target.GetComponent<Target>().GetRigidBody();
-            }
+            //if (targetRigidBody == null)
+            //{
+            //    targetRigidBody = target.GetComponent<Target>().GetRigidBody();
+            //}
 
-            targetVelocity = targetRigidBody.velocity;
+            targetVelocity = target.GetRigidBody().velocity;
 
             leadDelay = Vector2.Distance(target.transform.position, transform.position) / weaponSpeed;
 

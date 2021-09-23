@@ -251,12 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 1215196225000271268}
-  - {fileID: 1215196225855901741}
-  flashSprites:
-  - {fileID: 2144253921625097184, guid: 544a13dc1ad244efdb37be47e984714a, type: 3}
-  - {fileID: -4888105395243106523, guid: 544a13dc1ad244efdb37be47e984714a, type: 3}
+  spriteResolvers:
+  - {fileID: 2661589013329053966}
+  - {fileID: 2816747068950276160}
   flashDuration: 0.1
 --- !u!114 &1215196224254600406
 MonoBehaviour:
@@ -343,6 +340,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1215196225000271269}
   - component: {fileID: 1215196225000271268}
+  - component: {fileID: 2661589013329053966}
+  - component: {fileID: 8353027719299050546}
   m_Layer: 0
   m_Name: tank_base
   m_TagString: Untagged
@@ -404,7 +403,7 @@ SpriteRenderer:
   m_SortingLayerID: -117354113
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3916521456390843289, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+  m_Sprite: {fileID: 1308487270552746729, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -415,6 +414,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2661589013329053966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196225000271266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: 2.465746e-36
+--- !u!114 &8353027719299050546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196225000271266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: b3e3f0229e2734054a1eb4e7d3268082, type: 2}
 --- !u!1 &1215196225125829054
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +481,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1215196225855901738}
   - component: {fileID: 1215196225855901741}
+  - component: {fileID: 5410759242118524536}
+  - component: {fileID: 2816747068950276160}
   m_Layer: 0
   m_Name: Turret_Pivot
   m_TagString: Untagged
@@ -517,7 +545,7 @@ SpriteRenderer:
   m_SortingLayerID: -117354113
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 106231971251999270, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+  m_Sprite: {fileID: 2905402863913995671, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -528,6 +556,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5410759242118524536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196225855901739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: c75f4e48432a74ab884cf616d6ff962b, type: 2}
+--- !u!114 &2816747068950276160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196225855901739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: -7.2364085e-23
 --- !u!1001 &1215196224349137376
 PrefabInstance:
   m_ObjectHideFlags: 0

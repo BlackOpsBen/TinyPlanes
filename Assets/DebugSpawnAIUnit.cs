@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D.Animation;
 
 public class DebugSpawnAIUnit : MonoBehaviour
 {
@@ -17,6 +18,15 @@ public class DebugSpawnAIUnit : MonoBehaviour
             newUnit.AddComponent<LeadTarget>();
             
             GetComponent<PlayerController>().SetControlledUnit(newUnit);
+
+            List<SpriteResolver> spriteResolvers = new List<SpriteResolver>();
+            spriteResolvers.AddRange(newUnit.GetComponents<SpriteResolver>());
+            spriteResolvers.AddRange(newUnit.GetComponentsInChildren<SpriteResolver>());
+
+            foreach (SpriteResolver sr in spriteResolvers)
+            {
+                sr.SetCategoryAndLabel(sr.GetCategory(), newUnit.tag);
+            }
         }
     }
 }

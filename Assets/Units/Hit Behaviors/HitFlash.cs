@@ -1,40 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D.Animation;
 
 public class HitFlash : MonoBehaviour, IHitBehavior
 {
-    [SerializeField] SpriteRenderer[] spriteRenderers;
-
-    [SerializeField] Sprite[] flashSprites; // TODO automatically get correct flash sprites depending on which base sprites
-
-    private Sprite[] defaultSprites;
+    [SerializeField] private SpriteResolver[] spriteResolvers;
 
     [SerializeField] float flashDuration = .1f;
 
+    private bool isFlashed = false;
+
     private float timer = 0f;
-
-    private void Start()
-    {
-        defaultSprites = new Sprite[spriteRenderers.Length];
-
-        for (int i = 0; i < spriteRenderers.Length; i++)
-        {
-            defaultSprites[i] = spriteRenderers[i].sprite;
-        }
-        //defaultSprites = spriteRenderers.sprite;
-    }
 
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer > flashDuration)
+        if (isFlashed && timer > flashDuration)
         {
-            for (int i = 0; i < spriteRenderers.Length; i++)
+            foreach (SpriteResolver sr in spriteResolvers)
             {
-                spriteRenderers[i].sprite = defaultSprites[i];
+                sr.SetCategoryAndLabel(SpriteManager.SPRITE_CATEGORY_BASE, sr.GetLabel());
             }
-            //spriteRenderers.sprite = defaultSprites;
+            isFlashed = false;
         }
     }
 
@@ -42,10 +30,11 @@ public class HitFlash : MonoBehaviour, IHitBehavior
     {
         timer = 0f;
 
-        for (int i = 0; i < spriteRenderers.Length; i++)
+        isFlashed = true;
+
+        foreach (SpriteResolver sr in spriteResolvers)
         {
-            spriteRenderers[i].sprite = flashSprites[i];
+            sr.SetCategoryAndLabel(SpriteManager.SPRITE_CATEGORY_HIT, sr.GetLabel());
         }
-        //spriteRenderers.sprite = flashSprites;
     }
 }

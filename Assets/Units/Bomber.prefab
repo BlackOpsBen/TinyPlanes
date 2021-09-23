@@ -14486,6 +14486,8 @@ GameObject:
   - component: {fileID: 4216528992989540085}
   - component: {fileID: 293100303187536303}
   - component: {fileID: 2936514327540093283}
+  - component: {fileID: 2774920645826346593}
+  - component: {fileID: 4554327779697840611}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Untagged
@@ -14724,10 +14726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 9153080804665836847}
-  flashSprites:
-  - {fileID: 5419366313976871628, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
+  spriteResolvers:
+  - {fileID: 4554327779697840611}
   flashDuration: 0.1
 --- !u!114 &735359280198965527
 MonoBehaviour:
@@ -14809,6 +14809,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 9153080804665836835}
+--- !u!114 &2774920645826346593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: 720e950e47b774210a0c8e12a53693d3, type: 2}
+--- !u!114 &4554327779697840611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153080804665836840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: 1.6350717e+9
 --- !u!1001 &2871585899727058013
 PrefabInstance:
   m_ObjectHideFlags: 0

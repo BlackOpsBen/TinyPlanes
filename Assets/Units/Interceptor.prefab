@@ -14719,10 +14719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 9153080804665836847}
-  flashSprites:
-  - {fileID: -5554691879426119994, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
+  spriteResolvers:
+  - {fileID: 6735655071965678209}
   flashDuration: 0.1
 --- !u!114 &735359280198965527
 MonoBehaviour:
@@ -14839,7 +14837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpriteLibraryAsset: {fileID: 11400000, guid: 2b69e9abd687f4633abb50e2019fd9ee, type: 2}
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: bbf8cc1e984a54a09bbfd0ef7e92c1db, type: 2}
 --- !u!114 &6735655071965678209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14852,8 +14850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 7.742897e+19
-  m_labelHash: 0.12929359
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: -4.4801515e+14
 --- !u!1001 &2871585899727058013
 PrefabInstance:
   m_ObjectHideFlags: 0

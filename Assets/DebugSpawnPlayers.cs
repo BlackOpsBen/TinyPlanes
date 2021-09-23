@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.U2D.Animation;
 using UnityEngine.InputSystem;
 
 public class DebugSpawnPlayers : MonoBehaviour
@@ -22,14 +23,19 @@ public class DebugSpawnPlayers : MonoBehaviour
         else if (playerInputs[playerIndex].GetComponent<PlayerController>().GetControlledUnit() == null)
         {
             GameObject newUnit = Instantiate(unitPrefab);
-            if (playerIndex == 0)
+
+            newUnit.tag = FactionManager.instance.GetFaction(playerIndex).name;
+
+            List<SpriteResolver> spriteResolvers = new List<SpriteResolver>();
+
+            spriteResolvers.AddRange(newUnit.GetComponents<SpriteResolver>());
+            spriteResolvers.AddRange(newUnit.GetComponentsInChildren<SpriteResolver>());
+
+            foreach (SpriteResolver sr in spriteResolvers)
             {
-                newUnit.tag = "Blue";
+                sr.SetCategoryAndLabel(sr.GetCategory(), newUnit.tag);
             }
-            else
-            {
-                newUnit.tag = "Yellow";
-            }
+
             playerInputs[playerIndex].GetComponent<PlayerController>().SetControlledUnit(newUnit);
         }
     }

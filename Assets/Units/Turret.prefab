@@ -71,6 +71,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3410540812806710588}
   - component: {fileID: 3410540812806710589}
+  - component: {fileID: 6375816068168152879}
+  - component: {fileID: 8406298339923655202}
   m_Layer: 0
   m_Name: turret_base
   m_TagString: Untagged
@@ -143,6 +145,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6375816068168152879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540812806710591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: c596d355384094aff88b1d63173f6efc, type: 2}
+--- !u!114 &8406298339923655202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540812806710591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: 1.7740035e+25
 --- !u!1 &3410540813016186351
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,12 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 3410540813620967590}
-  - {fileID: 3410540812806710589}
-  flashSprites:
-  - {fileID: 7734667006899837600, guid: 1b0cd2409656445dea975258a6f3b4f4, type: 3}
-  - {fileID: 21300000, guid: 4dd0cdb94a63a40e0a23374c1b7bd2b3, type: 3}
+  spriteResolvers: []
   flashDuration: 0.1
 --- !u!61 &4240671836956605105
 BoxCollider2D:
@@ -422,6 +446,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3410540813620967593}
   - component: {fileID: 3410540813620967590}
+  - component: {fileID: 8708159132255985691}
+  - component: {fileID: 796752769209336955}
   m_Layer: 0
   m_Name: turret_top
   m_TagString: Untagged
@@ -484,7 +510,7 @@ SpriteRenderer:
   m_SortingLayerID: -117354113
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2955433597414751084, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+  m_Sprite: {fileID: 6806247936148290967, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -495,6 +521,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8708159132255985691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540813620967592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 3.620376e-26
+  m_labelHash: 9.296874e+10
+--- !u!114 &796752769209336955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3410540813620967592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: db1c32e51dc6e4181aae366643f95fd8, type: 2}
 --- !u!1001 &4241908116692060260
 PrefabInstance:
   m_ObjectHideFlags: 0

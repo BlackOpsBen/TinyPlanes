@@ -10,7 +10,10 @@ public class ProGenIslands : MonoBehaviour
 
     private Tilemap tilemap;
 
-    private float perlinScale = 20f;
+    [SerializeField] private float[] additivePerlinScales;
+    [SerializeField] private float[] multiplicativePerlinScales;
+    private float[] addRandOffsets;
+    private float[] multiplyRandOffsets;
 
     private int size;
 
@@ -18,6 +21,19 @@ public class ProGenIslands : MonoBehaviour
 
     private void Start()
     {
+        addRandOffsets = new float[additivePerlinScales.Length];
+        multiplyRandOffsets = new float[multiplicativePerlinScales.Length];
+
+        for (int i = 0; i < addRandOffsets.Length; i++)
+        {
+            addRandOffsets[i] = UnityEngine.Random.Range(0f, 100f);
+        }
+
+        for (int i = 0; i < multiplyRandOffsets.Length; i++)
+        {
+            multiplyRandOffsets[i] = UnityEngine.Random.Range(0f, 100f);
+        }
+
         size = Mathf.RoundToInt(WorldWrapManager.instance.GetWorldDimensions().x);
         offset = -size / 2;
         tilemap = GetComponent<Tilemap>();
@@ -32,10 +48,25 @@ public class ProGenIslands : MonoBehaviour
         {
             for (int x = 0; x < size - 1; x++)
             {
-                float xCoord = (float)x / size * perlinScale;
-                float yCoord = (float)y / size * perlinScale;
+                float finalVal = 0f;
+                for (int i = 0; i < additivePerlinScales.Length; i++)
+                {
+                    float xCoord = (float)x / size * additivePerlinScales[i] + addRandOffsets[i];
+                    float yCoord = (float)y / size * additivePerlinScales[i] + addRandOffsets[i];
+                    finalVal += Mathf.RoundToInt(Mathf.PerlinNoise(xCoord, yCoord));
+                    finalVal = Mathf.Clamp01(finalVal);
+                }
 
-                if (Mathf.RoundToInt(Mathf.PerlinNoise(xCoord, yCoord)) == 0)
+                for (int i = 0; i < multiplicativePerlinScales.Length; i++)
+                {
+                    float xCoord = (float)x / size * multiplicativePerlinScales[i] + multiplyRandOffsets[i];
+                    float yCoord = (float)y / size * multiplicativePerlinScales[i] + multiplyRandOffsets[i];
+                    finalVal *= Mathf.RoundToInt(Mathf.PerlinNoise(xCoord, yCoord));
+                }
+                //float xCoord = (float)x / size * additivePerlinScales;
+                //float yCoord = (float)y / size * additivePerlinScales;
+
+                if (Mathf.RoundToInt(finalVal) == 1)
                 {
                     tilemap.SetTile(new Vector3Int(x + offset, y + offset, 0), baseTerrainTile);
                 }

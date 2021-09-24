@@ -30,7 +30,7 @@ public class Targeting : MonoBehaviour
 
         foreach (var pt in potentialTargets)
         {
-            if (pt.tag != gameObject.tag)
+            if (pt.tag != gameObject.tag && pt.GetIsActive())
             {
                 Vector2 directionToTarget = pt.transform.position - transform.position;
                 float dSqrToTarget = directionToTarget.sqrMagnitude;
@@ -52,56 +52,6 @@ public class Targeting : MonoBehaviour
             return null;
         }
     }
-
-    //private GameObject GetNearestTarget()
-    //{
-    //    GameObject nearestTarget = null;
-
-    //    float nearestTargetDistSqr = float.MaxValue;
-
-    //    potentialTargets = new List<GameObject>();
-
-    //    for (int i = 0; i < FactionManager.instance.GetNumFactions(); i++)
-    //    {
-    //        potentialTargets.AddRange(GameObject.FindGameObjectsWithTag(FactionManager.instance.GetFaction(i).name));
-    //    }
-
-    //    List<GameObject> toRemove = new List<GameObject>();
-
-    //    foreach (var pt in potentialTargets)
-    //    {
-    //        if (pt.GetComponent<Target>() == null)
-    //        {
-    //            toRemove.Add(pt);
-    //        }
-    //    }
-
-    //    foreach (var bad in toRemove)
-    //    {
-    //        potentialTargets.Remove(bad);
-    //    }
-
-    //    foreach (var pt in potentialTargets)
-    //    {
-    //        Vector2 directionToTarget = pt.transform.position - transform.position;
-    //        float dSqrToTarget = directionToTarget.sqrMagnitude;
-
-    //        if (dSqrToTarget < nearestTargetDistSqr)
-    //        {
-    //            nearestTarget = pt;
-    //            nearestTargetDistSqr = dSqrToTarget;
-    //        }
-    //    }
-
-    //    if (nearestTargetDistSqr < range * range)
-    //    {
-    //        return nearestTarget;
-    //    }
-    //    else
-    //    {
-    //        return null;
-    //    }
-    //}
 
     /// <summary>
     /// Gets the nearest valid target if it is within range. Otherwise returns null.

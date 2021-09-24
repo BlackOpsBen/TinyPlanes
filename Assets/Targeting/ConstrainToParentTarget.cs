@@ -6,20 +6,20 @@ public class ConstrainToParentTarget : MonoBehaviour
 {
     private Transform parent;
 
-    public void SetParent(Transform parent)
-    {
-        this.parent = parent;
-        GetComponent<InitTargetWrapOffsets>().Init(parent.GetComponent<Rigidbody2D>(), parent.tag);
-    }
-
-    private void Start()
-    {
-        SetParent(parent);
-    }
+    //private void Start()
+    //{
+    //    SetParent(parent);
+    //}
 
     private void Update()
     {
         UpdatePosition();
+    }
+
+    public void SetParent(Transform parent)
+    {
+        this.parent = parent;
+        GetComponent<InitTargetWrapOffsets>().Init(parent.GetComponent<Rigidbody2D>(), parent.tag);
     }
 
     private void UpdatePosition()

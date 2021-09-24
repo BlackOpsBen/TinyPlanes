@@ -53,10 +53,7 @@ public class AIInput : MonoBehaviour
         {
             SetDestination();
             Steering();
-            if (targeting.GetHasTarget())
-            {
-                Shooting();
-            }
+            Shooting();
         }
     }
 
@@ -104,18 +101,35 @@ public class AIInput : MonoBehaviour
 
     private void Shooting()
     {
-        float angle = Vector2.Angle(GetDirectionToDestination().normalized, controlledUnit.transform.up);
-
-        if (!isShooting && angle < fireThreshold)
+        if (targeting.GetHasTarget())
         {
-            ActionA.Invoke(true, false);
-            isShooting = true;
-        }
+            float angle = Vector2.Angle(GetDirectionToDestination().normalized, controlledUnit.transform.up);
 
-        if (isShooting && angle > fireThreshold)
-        {
-            ActionA.Invoke(false, true);
-            isShooting = false;
+            if (!isShooting && angle < fireThreshold)
+            {
+                StartShooting();
+            }
+
+            if (isShooting && angle > fireThreshold)
+            {
+                StopShooting();
+            }
         }
+        else
+        {
+            StopShooting();
+        }
+    }
+
+    private void StartShooting()
+    {
+        ActionA.Invoke(true, false);
+        isShooting = true;
+    }
+
+    private void StopShooting()
+    {
+        ActionA.Invoke(false, true);
+        isShooting = false;
     }
 }

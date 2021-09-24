@@ -6,6 +6,8 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
+    private bool isActive = true;
+
     /// <summary>
     /// Sets the RigidBody2D that is associated with this target.
     /// </summary>
@@ -22,5 +24,15 @@ public class Target : MonoBehaviour
     public Rigidbody2D GetRigidBody()
     {
         return rb;
+    }
+
+    public void SetIsActive(bool isActive)
+    {
+        this.isActive = isActive;
+    }
+
+    public bool GetIsActive()
+    {
+        return isActive;
     }
 }

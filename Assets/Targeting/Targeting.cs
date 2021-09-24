@@ -111,4 +111,9 @@ public class Targeting : MonoBehaviour
     {
         return target;
     }
+
+    public bool GetHasTarget()
+    {
+        return target != null;
+    }
 }

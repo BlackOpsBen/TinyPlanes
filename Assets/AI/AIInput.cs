@@ -17,7 +17,11 @@ public class AIInput : MonoBehaviour
 
     private GameObject controlledUnit;
 
+    private Targeting targeting;
+
     private LeadTarget leadTarget;
+
+    private Vector2 destination;
 
     private bool isShooting = false;
 
@@ -34,6 +38,7 @@ public class AIInput : MonoBehaviour
 
         if (controlledUnit != null)
         {
+            targeting = controlledUnit.GetComponent<Targeting>();
             leadTarget = controlledUnit.GetComponent<LeadTarget>();
         }
     }
@@ -46,61 +51,71 @@ public class AIInput : MonoBehaviour
         }
         else
         {
+            SetDestination();
             Steering();
-            Shooting();
+            if (targeting.GetHasTarget())
+            {
+                Shooting();
+            }
         }
+    }
+
+    private void SetDestination()
+    {
+        if (targeting.GetHasTarget())
+        {
+            if (leadTarget != null)
+            {
+                destination = leadTarget.GetTargetLead();
+            }
+            else
+            {
+                destination = targeting.GetTarget().transform.position;
+            }
+        }
+        else if (GetDistanceSqrToDestination() < 25f)
+        {
+            destination = GetRandomDestination(); // TODO have AI get smart destination based on objectives
+        }
+    }
+
+    private Vector2 GetRandomDestination()
+    {
+        float randX = UnityEngine.Random.Range(-(WorldWrapManager.instance.GetWorldDimensions().x / 2), WorldWrapManager.instance.GetWorldDimensions().x / 2);
+        float randY = UnityEngine.Random.Range(-(WorldWrapManager.instance.GetWorldDimensions().y / 2), WorldWrapManager.instance.GetWorldDimensions().y / 2);
+        return new Vector2(randX, randY);
+    }
+
+    private Vector2 GetDirectionToDestination()
+    {
+        return destination - (Vector2)controlledUnit.transform.position;
+    }
+
+    private float GetDistanceSqrToDestination()
+    {
+        return (destination - (Vector2)controlledUnit.transform.position).sqrMagnitude;
     }
 
     private void Steering()
     {
-        Vector2 steerDirection = GetDirectionToNearestTarget();
+        Vector2 steerDirection = GetDirectionToDestination();
         Steer.Invoke(steerDirection);
-    }
-
-    private Vector2 GetDirectionToNearestTarget()
-    {
-        if (leadTarget != null)
-        {
-            return leadTarget.GetTargetLead() - (Vector2)controlledUnit.transform.position;
-        }
-        else
-        {
-            if (controlledUnit == null)
-            {
-                Debug.LogWarning("Attempted Steering: AI does not have a controlled unit yet.");
-                // Nothing to move
-                return Vector2.zero;
-            }
-            else
-            {
-                // Nowhere to go
-                Debug.LogWarning("AI controlled unit does not have a LeadTarget component.");
-                return Vector2.zero;
-            }
-        }
     }
 
     private void Shooting()
     {
-        if (controlledUnit != null)
+        float angle = Vector2.Angle(GetDirectionToDestination().normalized, controlledUnit.transform.up);
+
+        if (!isShooting && angle < fireThreshold)
         {
-            float angle = Vector2.Angle(GetDirectionToNearestTarget().normalized, controlledUnit.transform.up);
-
-            if (!isShooting && angle < fireThreshold)
-            {
-                ActionA.Invoke(true, false);
-                isShooting = true;
-            }
-
-            if (isShooting && angle > fireThreshold)
-            {
-                ActionA.Invoke(false, true);
-                isShooting = false;
-            }
+            ActionA.Invoke(true, false);
+            isShooting = true;
         }
-        else
+
+        if (isShooting && angle > fireThreshold)
         {
-            Debug.LogWarning("Attempted Shooting: AI does not have a controlled unit yet.");
+            ActionA.Invoke(false, true);
+            isShooting = false;
         }
     }
 }

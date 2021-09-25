@@ -18,8 +18,12 @@ public class Capturable : MonoBehaviour
     [Header("Optional Spawners")]
     [SerializeField] private List<SpawnAIUnits> aiSpawners = new List<SpawnAIUnits>();
 
+    private RecolorToFaction recolor;
+
     private void Start()
     {
+        recolor = GetComponent<RecolorToFaction>();
+
         superiorityCounters = new float[FactionManager.instance.GetNumFactions()];
 
         SetOwningFaction(factionIndex);
@@ -111,6 +115,11 @@ public class Capturable : MonoBehaviour
         foreach (var spawner in aiSpawners)
         {
             spawner.enabled = true;
+        }
+
+        if (recolor != null)
+        {
+            recolor.SetSpriteColors();
         }
     }
 

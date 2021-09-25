@@ -133,10 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 3243498765087155040}
-  flashSprites:
-  - {fileID: 6777311085889757295, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+  spriteResolvers: []
   flashDuration: 0.1
 --- !u!61 &1503047142164653806
 BoxCollider2D:
@@ -480,10 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f044fbaba503c464ca7d5ef2d6aa1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 8221978578757344241}
-  flashSprites:
-  - {fileID: 6777311085889757295, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+  spriteResolvers: []
   flashDuration: 0.1
 --- !u!61 &6354633312381167955
 BoxCollider2D:
@@ -621,7 +615,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8221978578821718479}
-  - component: {fileID: 1344920044821826859}
   - component: {fileID: 1297994459744124118}
   - component: {fileID: 1427129660794642616}
   - component: {fileID: 561460395506281785}
@@ -648,19 +641,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1344920044821826859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8221978578821718478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1bbf93c7f0bd47e094251749088b028, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPerPool: 10
 --- !u!114 &1297994459744124118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,8 +666,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cb8f66ab506449cb5f51e2f1d2fe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 2555786527121830069, guid: 45392948fa08b4180a5ad568cebbe154, type: 3}
+  aiControllerPrefab: {fileID: 2555786527121830069, guid: 45392948fa08b4180a5ad568cebbe154, type: 3}
   interval: 10
+  unitListIndex: 0
 --- !u!114 &561460395506281785
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(SpawnPoint))]
 public class SpawnAIUnits : MonoBehaviour
 {
-    [SerializeField] GameObject unitPrefab;
+    [SerializeField] GameObject aiControllerPrefab;
 
     [SerializeField] float interval = 10f;
+
+    public int unitListIndex = 0;
 
     private SpawnPoint spawnPoint;
 
@@ -24,7 +26,7 @@ public class SpawnAIUnits : MonoBehaviour
 
         if (timer > interval)
         {
-            spawnPoint.Spawn(unitPrefab);
+            spawnPoint.Spawn(aiControllerPrefab);
             timer = 0f;
         }
     }

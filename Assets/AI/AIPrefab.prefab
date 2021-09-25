@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2555786527121830065}
   - component: {fileID: 2555786527121830064}
   - component: {fileID: 2555786527121830071}
-  - component: {fileID: -1835255180843263578}
   m_Layer: 0
   m_Name: AIPrefab
   m_TagString: Untagged
@@ -102,16 +101,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-1835255180843263578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555786527121830069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49564661a68d5467f93b300015808b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 9153080804665836840, guid: 0438d20d5b92a4358a1e7c8eba9001d1, type: 3}

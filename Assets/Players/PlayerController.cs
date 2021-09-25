@@ -84,5 +84,6 @@ public class PlayerController : MonoBehaviour
     {
         controlledUnit = unit;
         unitInterface = controlledUnit.GetComponent<IPlayerControllable>();
+        unitInterface.SetControllingPlayer(gameObject);
     }
 }

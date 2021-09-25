@@ -11,6 +11,8 @@ public class PlaneInterface : MonoBehaviour, IPlayerControllable
     private Arsenal arsenal;
     private ISpecialAbility special;
 
+    private GameObject controllingPlayer;
+
     private void Awake()
     {
         steering = GetComponent<Steering>();
@@ -31,5 +33,15 @@ public class PlaneInterface : MonoBehaviour, IPlayerControllable
     public void OnActionB(bool performed, bool canceled)
     {
         special.OnSpecial(performed, canceled);
+    }
+
+    public void SetControllingPlayer(GameObject controllingPlayer)
+    {
+        this.controllingPlayer = controllingPlayer;
+    }
+
+    public GameObject GetControllingPlayer()
+    {
+        return controllingPlayer;
     }
 }

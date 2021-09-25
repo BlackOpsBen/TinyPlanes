@@ -15,6 +15,9 @@ public class Capturable : MonoBehaviour
     private float[] superiorityCounters;
     private bool allPrereqsDestroyed = false;
 
+    [Header("Optional Spawners")]
+    [SerializeField] private List<SpawnAIUnits> aiSpawners = new List<SpawnAIUnits>();
+
     private void Start()
     {
         superiorityCounters = new float[FactionManager.instance.GetNumFactions()];
@@ -34,6 +37,10 @@ public class Capturable : MonoBehaviour
                 }
             }
             allPrereqsDestroyed = true;
+            foreach (var spawner in aiSpawners)
+            {
+                spawner.enabled = false;
+            }
         }
         else
         {
@@ -100,6 +107,11 @@ public class Capturable : MonoBehaviour
             building.tag = gameObject.tag;
         }
         Debug.LogWarning("New Faction Owner: " + FactionManager.instance.GetFaction(factionIndex).name + factionIndex.ToString());
+
+        foreach (var spawner in aiSpawners)
+        {
+            spawner.enabled = true;
+        }
     }
 
     public int GetOwningFactionIndex()

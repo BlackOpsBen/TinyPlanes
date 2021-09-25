@@ -687,6 +687,8 @@ MonoBehaviour:
   - {fileID: 1680263757329398304}
   superiorityRequirement: 20
   superiorityRadius: 15
+  aiSpawners:
+  - {fileID: 1427129660794642616}
 --- !u!1 &8221978578903837278
 GameObject:
   m_ObjectHideFlags: 0

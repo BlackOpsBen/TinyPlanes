@@ -21,7 +21,7 @@ public class DeathDisableTarget : MonoBehaviour, IDeathBehavior
         }
         catch (System.Exception ex)
         {
-            Debug.Log("No wrapTargets found. " + ex);
+            Debug.LogError("No wrapTargets found. " + ex);
         }
     }
 

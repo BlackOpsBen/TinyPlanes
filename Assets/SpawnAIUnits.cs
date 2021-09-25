@@ -11,7 +11,7 @@ public class SpawnAIUnits : MonoBehaviour
 
     [SerializeField] float interval = 10f;
 
-    [SerializeField] private DeadPool deadPool;
+    private DeadPool deadPool;
 
     public int unitListIndex = 0;
 
@@ -39,8 +39,13 @@ public class SpawnAIUnits : MonoBehaviour
                 ai = Instantiate(aiControllerPrefab, transform);
                 InitializeNewAIUnit(ai);
             }
+            else
+            {
+                ai.GetComponent<PlayerController>().GetControlledUnit().GetComponent<Health>().Respawn();
+            }
 
-            //spawnPoint.Spawn(ai);
+            spawnPoint.Spawn(ai.GetComponent<PlayerController>().GetControlledUnit());
+
             timer = 0f;
         }
     }

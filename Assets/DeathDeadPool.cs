@@ -16,11 +16,17 @@ public class DeathDeadPool : MonoBehaviour, IDeathBehavior
 
     public void Die()
     {
-        deadPool.MoveToDeadPool(controllingPlayer);
+        StartCoroutine(MoveToDeadPool());
     }
 
     public void Respawn()
     {
         deadPool.RemoveFromDeadPool(controllingPlayer);
+    }
+
+    private IEnumerator MoveToDeadPool()
+    {
+        yield return new WaitForSeconds(5f);
+        deadPool.MoveToDeadPool(controllingPlayer);
     }
 }

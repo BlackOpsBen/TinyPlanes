@@ -11,13 +11,12 @@ public class SpawnPoint : MonoBehaviour
     /// <param name="unit"></param>
     public void Spawn(GameObject unit)
     {
-        try
-        {
-            unit.GetComponent<Spawnable>().Spawn(spawnPos, gameObject.tag);
-        }
-        catch (System.Exception ex)
-        {
-            Debug.LogError("Attempted to Spawn a unit that does not have the Spawnable component. " + ex);
-        }
+        unit.transform.position = spawnPos.position;
+        unit.transform.rotation = spawnPos.rotation;
+        Rigidbody2D rb = unit.GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.position = spawnPos.position;
+        rb.SetRotation(spawnPos.rotation);
     }
 }

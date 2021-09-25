@@ -47,7 +47,8 @@ public class Capturable : MonoBehaviour
                 for (int j = 0; j < superiorityUnits.Length; j++)
                 {
                     bool inRange = GetDistSqr(superiorityUnits[j].transform.position, transform.position) < superiorityRadius * superiorityRadius;
-                    if (inRange)
+                    bool isAlive = superiorityUnits[j].GetIsActive();
+                    if (inRange && isAlive)
                     {
                         int factionIndex = FactionManager.instance.GetFactionIndex(superiorityUnits[j].tag);
                         qtyUnitsPerFaction[factionIndex]++;

@@ -34,37 +34,37 @@ public class SpawnAIUnits : MonoBehaviour
         {
             GameObject ai = deadPool.GetNextInPool();
 
-            if (ai == null)
+            GameObject controlledUnit;
+
+            if (ai != null)
             {
-                ai = Instantiate(aiControllerPrefab, transform);
-                InitializeNewAIUnit(ai);
+                controlledUnit = ai.GetComponent<PlayerController>().GetControlledUnit();
+                controlledUnit.GetComponent<Health>().Respawn();
             }
             else
             {
-                ai.GetComponent<PlayerController>().GetControlledUnit().GetComponent<Health>().Respawn();
+                ai = Instantiate(aiControllerPrefab, transform);
+
+                controlledUnit = Instantiate(UnitManager.instance.GetUnitPrefab(unitListIndex), transform);
+
+                ai.GetComponent<PlayerController>().SetControlledUnit(controlledUnit);
+
+                controlledUnit.AddComponent<Targeting>();
+                controlledUnit.AddComponent<LeadTarget>();
+                DeathDeadPool deathDeadPool = controlledUnit.AddComponent<DeathDeadPool>();
+                deathDeadPool.Init(deadPool, ai);
             }
+
+            ai.tag = gameObject.tag;
+
+            controlledUnit.tag = gameObject.tag;
+
+            DisplayCorrectSprites(controlledUnit);
 
             spawnPoint.Spawn(ai.GetComponent<PlayerController>().GetControlledUnit());
 
             timer = 0f;
         }
-    }
-
-    private void InitializeNewAIUnit(GameObject ai)
-    {
-        ai.tag = gameObject.tag;
-
-        GameObject newUnit = Instantiate(UnitManager.instance.GetUnitPrefab(unitListIndex), transform);
-
-        newUnit.tag = gameObject.tag;
-        newUnit.AddComponent<Targeting>();
-        newUnit.AddComponent<LeadTarget>();
-        DeathDeadPool deathDeadPool = newUnit.AddComponent<DeathDeadPool>();
-        deathDeadPool.Init(deadPool, ai);
-
-        ai.GetComponent<PlayerController>().SetControlledUnit(newUnit);
-
-        DisplayCorrectSprites(newUnit);
     }
 
     private static void DisplayCorrectSprites(GameObject newUnit)

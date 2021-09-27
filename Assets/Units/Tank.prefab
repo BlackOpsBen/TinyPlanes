@@ -55,6 +55,8 @@ GameObject:
   - component: {fileID: 6280213745287205432}
   - component: {fileID: 8370986981564764802}
   - component: {fileID: 162842640995643385}
+  - component: {fileID: 3461401401288700397}
+  - component: {fileID: 8456059662832973623}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -140,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretPivot: {fileID: 1215196225855901738}
   turretBase: {fileID: 4513475386991380416}
-  turretTurnSpeed: 100
+  turretTurnSpeed: 200
 --- !u!114 &1215196224254600400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11aefca69cfb24274ac0bf282283da32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 6
   DisableWhenDead:
   - {fileID: 1215196224254600366}
   - {fileID: 1215196224254600367}
@@ -285,7 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSteeringSpeed: 100
-  target: {fileID: 0}
   forwardAngleMax: 45
   maxSpeed: 10
   acceleration: 200
@@ -328,8 +329,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc29d834633be41b0b99abf1a4db15f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wrapTarget: 1
-  targetWrapGroupPrefab: {fileID: 3337919453996133270, guid: 8c73975f90a404708ac70f87bbecf738, type: 3}
+--- !u!114 &3461401401288700397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196224254600362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6092ce0e16dfc47f883419d01ff6648c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8456059662832973623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215196224254600362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a016ca5bbcb4b7ba03fa1c7baeaebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215196225000271266
 GameObject:
   m_ObjectHideFlags: 0

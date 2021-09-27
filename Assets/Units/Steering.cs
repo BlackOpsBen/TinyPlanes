@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Steering : MonoBehaviour
+public class Steering : MonoBehaviour, ISteer
 {
     [SerializeField] private float steerThresholdMagnitude = .9f;
     [SerializeField] private float defaultSteeringSpeed = 200f;

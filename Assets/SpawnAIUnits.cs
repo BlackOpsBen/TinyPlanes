@@ -67,7 +67,7 @@ public class SpawnAIUnits : MonoBehaviour
         }
     }
 
-    private static void DisplayCorrectSprites(GameObject newUnit)
+    private static void DisplayCorrectSprites(GameObject newUnit) // TODO refactor to use the "RecolorSprites" script
     {
         List<SpriteResolver> spriteResolvers = new List<SpriteResolver>();
         spriteResolvers.AddRange(newUnit.GetComponents<SpriteResolver>());

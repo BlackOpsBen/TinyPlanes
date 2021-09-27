@@ -382,6 +382,8 @@ GameObject:
   - component: {fileID: 6088674576621842625}
   - component: {fileID: 1000248871318485183}
   - component: {fileID: 5436085869624333252}
+  - component: {fileID: 6833452789006571039}
+  - component: {fileID: 2635581606257722711}
   m_Layer: 0
   m_Name: Destroyer
   m_TagString: Untagged
@@ -527,7 +529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretPivot: {fileID: 8163152234102514313}
   turretBase: {fileID: 8163152233009552614}
-  turretTurnSpeed: 100
+  turretTurnSpeed: 200
 --- !u!114 &8163152234236544049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,12 +569,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSteeringSpeed: 50
-  target: {fileID: 0}
   forwardAngleMax: 90
   maxSpeed: 50
   acceleration: 400
   tankBody: {fileID: 8163152232761639622}
-  stopDistance: 1
 --- !u!114 &222141502558958799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +689,30 @@ MonoBehaviour:
   spriteResolvers:
   - {fileID: 8598207846603456753}
   - {fileID: 753535880016847264}
+--- !u!114 &6833452789006571039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163152234236544009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a016ca5bbcb4b7ba03fa1c7baeaebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2635581606257722711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163152234236544009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6092ce0e16dfc47f883419d01ff6648c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &90772969052366590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -821,11 +845,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdef9b1e83f847218e9b569184ee373, type: 3}
---- !u!1 &4898736981206754699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2927125047075733978, guid: abdef9b1e83f847218e9b569184ee373, type: 3}
-  m_PrefabInstance: {fileID: 7738578257502331985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7538915995695931430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 286945919239947383, guid: abdef9b1e83f847218e9b569184ee373, type: 3}
@@ -834,6 +853,11 @@ Transform:
 --- !u!198 &5246561023026004715 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2570276240155797178, guid: abdef9b1e83f847218e9b569184ee373, type: 3}
+  m_PrefabInstance: {fileID: 7738578257502331985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4898736981206754699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2927125047075733978, guid: abdef9b1e83f847218e9b569184ee373, type: 3}
   m_PrefabInstance: {fileID: 7738578257502331985}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8568484746251206221

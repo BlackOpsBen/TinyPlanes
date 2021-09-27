@@ -15,8 +15,6 @@ public class TankMovement : MonoBehaviour, ISteer
     [Tooltip("Used for rotating body towards heading")]
     [SerializeField] private Transform tankBody;
 
-    [SerializeField] private float stopDistance = 1f;
-
     private Rigidbody2D rb;
 
     Vector2 desiredFacing;
@@ -52,7 +50,7 @@ public class TankMovement : MonoBehaviour, ISteer
 
     private void Accelerate()
     {
-        if (Vector2.Angle(desiredFacing, tankBody.up) < forwardAngleMax && Vector2.Distance(desiredFacing, transform.position) > stopDistance)
+        if (Vector2.Angle(desiredFacing, tankBody.up) < forwardAngleMax)
         {
             rb.AddRelativeForce(tankBody.up * acceleration * Time.deltaTime, ForceMode2D.Force);
             Vector2 clampedVelocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);

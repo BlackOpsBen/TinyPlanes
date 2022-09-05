@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: SL Red
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Unit Base
+    m_Hash: 355681720
+    m_CategoryList:
+    - m_Name: Fighter
+      m_Hash: -1246365088
+      m_Sprite: {fileID: 9192040580742784624, guid: faf9c437b5610bc4fad128bbfc57311e, type: 3}
+    - m_Name: Bomber
+      m_Hash: -860990150
+      m_Sprite: {fileID: 5621317915812804672, guid: faf9c437b5610bc4fad128bbfc57311e, type: 3}
+    - m_Name: TurretTop1
+      m_Hash: 1370303219
+      m_Sprite: {fileID: -7197630329587322871, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
+    - m_Name: TurretTop2
+      m_Hash: -928744631
+      m_Sprite: {fileID: 5968917624704144183, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
+    - m_Name: TurretBase
+      m_Hash: 1768606100
+      m_Sprite: {fileID: -8907651678591178445, guid: 69828ed7e317d4a43953ed95b7801eeb, type: 3}
+    - m_Name: TankTop
+      m_Hash: -1699809485
+      m_Sprite: {fileID: 6477408312295677910, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
+    - m_Name: TankBase
+      m_Hash: 72467249
+      m_Sprite: {fileID: -2310216215517336171, guid: c4b4fc4b98499400c8f76753c1fe2138, type: 3}
+  - m_Name: Unit Hit
+    m_Hash: -1121445021
+    m_CategoryList:
+    - m_Name: Fighter
+      m_Hash: -1246365088
+      m_Sprite: {fileID: 7062248037653463830, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
+    - m_Name: Bomber
+      m_Hash: -860990150
+      m_Sprite: {fileID: -1196735973206481665, guid: ac3d7cc9fabac4a11bb6d6e7019f57b5, type: 3}
+    - m_Name: TurretTop1
+      m_Hash: 1370303219
+      m_Sprite: {fileID: 7734667006899837600, guid: 1b0cd2409656445dea975258a6f3b4f4, type: 3}
+    - m_Name: TurretTop2
+      m_Hash: -928744631
+      m_Sprite: {fileID: -2990789898748539895, guid: 1b0cd2409656445dea975258a6f3b4f4, type: 3}
+    - m_Name: TurretBase
+      m_Hash: 1768606100
+      m_Sprite: {fileID: 21300000, guid: 4dd0cdb94a63a40e0a23374c1b7bd2b3, type: 3}
+    - m_Name: TankTop
+      m_Hash: -1699809485
+      m_Sprite: {fileID: -4888105395243106523, guid: 544a13dc1ad244efdb37be47e984714a, type: 3}
+    - m_Name: TankBase
+      m_Hash: 72467249
+      m_Sprite: {fileID: 2144253921625097184, guid: 544a13dc1ad244efdb37be47e984714a, type: 3}
